@@ -1,3 +1,3 @@
-const fontSizes: number[] = [12, 14, 16, 20, 24, 32];
+const fontSizes: string[] = ["12px", "14px", "16px", "20px", "24px", "32px"];
 
 export default fontSizes;

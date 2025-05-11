@@ -1,5 +1,6 @@
 "use client";
-import { createGlobalStyle } from "styled-components";
+import { ThemeProvider, createGlobalStyle } from "styled-components";
+import theme from "./themes";
 
 const GlobalStyle = createGlobalStyle`
   html,body,textarea {
