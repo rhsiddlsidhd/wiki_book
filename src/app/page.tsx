@@ -4,7 +4,7 @@ import { styled } from "styled-components";
 export default function Home() {
   return (
     <>
-      <Container>123</Container>
+      <Container>1213</Container>
     </>
   );
 }
