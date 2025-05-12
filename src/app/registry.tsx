@@ -2,7 +2,9 @@
 
 import { useServerInsertedHTML } from "next/navigation";
 import React, { useState } from "react";
+import { ThemeProvider } from "styled-components";
 import { StyleRegistry, createStyleRegistry } from "styled-jsx";
+import theme from "./themes/index";
 export default function StyledJsxRegistry({
   children,
 }: {
@@ -16,5 +18,9 @@ export default function StyledJsxRegistry({
     return <>{styles}</>;
   });
 
-  return <StyleRegistry registry={jsxStyleRegistry}>{children}</StyleRegistry>;
+  return (
+    <ThemeProvider theme={theme}>
+      <StyleRegistry registry={jsxStyleRegistry}>{children}</StyleRegistry>
+    </ThemeProvider>
+  );
 }
