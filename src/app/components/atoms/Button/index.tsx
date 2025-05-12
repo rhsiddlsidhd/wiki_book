@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { Responsive } from "@/app/types/styles";
 import {
   Color,
@@ -103,9 +102,10 @@ const Button = styled.button<ButtonProps>`
     // 변형 스타일 적용
     if (variant && variants[variant]) {
       const styles = [];
-      !color &&
+      if (!color) {
         styles.push(toPropValue("color", variants[variant].color, theme));
-      !backgroundColor &&
+      }
+      if (!backgroundColor) {
         styles.push(
           toPropValue(
             "background-color",
@@ -113,7 +113,8 @@ const Button = styled.button<ButtonProps>`
             theme
           )
         );
-      !pseudoClass &&
+      }
+      if (!pseudoClass) {
         styles.push(
           `&:hover {
             ${toPropValue(
@@ -123,7 +124,9 @@ const Button = styled.button<ButtonProps>`
             )}
           }`.replaceAll("\n", "")
         );
-      !pseudoClass &&
+      }
+
+      if (!pseudoClass) {
         styles.push(
           `&:disabled {
             ${toPropValue(
@@ -133,6 +136,8 @@ const Button = styled.button<ButtonProps>`
             )}
           }`.replaceAll("\n", "")
         );
+      }
+
       return styles.join("\n");
     }
   }}

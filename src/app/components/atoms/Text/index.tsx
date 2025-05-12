@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { Responsive } from "@/app/types/styles";
 import {
   Color,
@@ -89,18 +88,23 @@ const Text = styled.span<TextProps>`
     // 변형 스타일에 적용
     if (variant && variants[variant]) {
       const styles = [];
-      !fontSize &&
+      if (!fontSize) {
         styles.push(
           toPropValue("font-size", variants[variant].fontSize, theme)
         );
-      !letterSpacing &&
+      }
+
+      if (!letterSpacing) {
         styles.push(
           toPropValue("letter-spacing", variants[variant].letterSpacing, theme)
         );
-      !lineHeight &&
+      }
+      if (!lineHeight) {
         styles.push(
           toPropValue("line-height", variants[variant].lineHeight, theme)
         );
+      }
+
       return styles.join("\n");
     }
   }}
