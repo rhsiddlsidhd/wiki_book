@@ -1,16 +1,11 @@
 "use client";
-import { styled } from "styled-components";
+
+import Box from "./components/layout/Box";
 
 export default function Home() {
   return (
     <>
-      <Container>1213</Container>
+      <Box>123123</Box>
     </>
   );
 }
-
-const Container = styled.section`
-  font-size: ${(props) => props.theme.fontSizes[3]};
-  padding: 20px;
-  border-radius: 5px;
-`;
