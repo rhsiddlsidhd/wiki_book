@@ -60,9 +60,9 @@ const CheckBox = (props: CheckBoxProps) => {
       <Flex alignItems="center">
         {/* 체크 박스 ON/OFF 그리기 */}
         {(checked ?? isChecked) ? (
-          <CheckBoxIcon size={50} onClick={onClick} />
+          <CheckBoxIcon size={20} onClick={onClick} />
         ) : (
-          <CheckBoxOutlineBlankIcon size={50} onClick={onClick} />
+          <CheckBoxOutlineBlankIcon size={20} onClick={onClick} />
         )}
         {/* 체크 박스 라벨 */}
         {label && label.length > 0 && (

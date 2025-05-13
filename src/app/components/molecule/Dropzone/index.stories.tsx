@@ -1,7 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React, { useState, useEffect } from "react";
 import Dropzone from "./index";
-import { Box, Button } from "@mui/material";
+
+import Button from "../../atoms/Button";
+import Box from "../../layout/Box";
 
 const meta = {
   title: "Molecules/Dropzone",
@@ -71,10 +73,14 @@ const DropzoneDemo = (args: React.ComponentProps<typeof Dropzone>) => {
         <Dropzone {...args} value={files} onDrop={handleDrop} />
       </Box>
       <Box marginBottom={1}>
-        <Button onClick={fetchData}>이미지를 추가</Button>
+        <Button variant="primary" onClick={fetchData}>
+          이미지를 추가
+        </Button>
       </Box>
       <Box marginBottom={2}>
-        <Button onClick={clearImages}>모든 이미지를 클리어</Button>
+        <Button variant="secondary" onClick={clearImages}>
+          모든 이미지를 클리어
+        </Button>
       </Box>
       <Box>
         {files.map((f, i) => (

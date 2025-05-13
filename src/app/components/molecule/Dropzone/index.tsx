@@ -154,6 +154,7 @@ const Dropzone = (props: DropzoneProps) => {
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     e.stopPropagation();
+
     setIsFocused(false);
 
     const files = value.concat(
@@ -164,9 +165,7 @@ const Dropzone = (props: DropzoneProps) => {
 
     if (files.length == 0) {
       return window.alert(
-        `次のファイルフォーマットは指定できません${acceptedFileTypes.join(
-          " ,"
-        )})`
+        `다음 파일 포맷은 지정할 수 없습니다: ${acceptedFileTypes.join(" ,")})`
       );
     }
 
@@ -197,10 +196,12 @@ const Dropzone = (props: DropzoneProps) => {
   // 파일 선택 대화 상자를 표시한다
   const handleClick = () => {
     inputRef.current?.click();
+    console.log("클릭");
   };
 
   useEffect(() => {
     if (inputRef.current && value && value.length == 0) {
+      console.log("!?");
       inputRef.current.value = "";
     }
   }, [value]);
@@ -222,6 +223,7 @@ const Dropzone = (props: DropzoneProps) => {
         data-testid="dropzone"
       >
         {/* 더미 입력 */}
+        {/* style 상 display:none을 하지만 속성은 필요함으로 dom요소를 가져와서 다른 요소를 클릭했을때 input 클릭을 시키기 위해 ref를 사용 */}
         <DropzoneInputFile
           ref={inputRef}
           type="file"
@@ -237,11 +239,6 @@ const Dropzone = (props: DropzoneProps) => {
       </DropzoneRoot>
     </>
   );
-};
-
-Dropzone.defaultProps = {
-  acceptedFileTypes: ["image/png", "image/jpeg", "image/jpg", "image/gif"],
-  hasError: false,
 };
 
 export default Dropzone;

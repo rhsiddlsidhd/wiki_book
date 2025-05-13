@@ -99,7 +99,7 @@ const WithDropzoneDemo = (args: React.ComponentProps<typeof ImagePreview>) => {
           {...args}
           onRemove={handleRemove}
         />
-      ))}{" "}
+      ))}
     </Container>
   );
 };
