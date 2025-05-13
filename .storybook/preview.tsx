@@ -2,7 +2,6 @@ import type { Preview } from "@storybook/react";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import React from "react";
 import theme from "./../src/app/themes/index";
-import * as NextImage from "next/image";
 
 const GlobalStyle = createGlobalStyle`
  html,body,textarea {

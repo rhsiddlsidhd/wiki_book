@@ -15,10 +15,11 @@ export default {
     },
     width: {
       control: { type: "number" },
-      defaultValue: 320,
+
       description: "이미지 가로폭",
       table: {
         type: { summary: "number" },
+        defaultValue: { summary: "320" },
       },
     },
     height: {
@@ -27,11 +28,12 @@ export default {
       defaultValue: 320,
       table: {
         type: { summary: "number" },
+        defaultValue: { summary: "320" },
       },
     },
     containerWidth: {
       control: { type: "number" },
-      defaultValue: 320,
+
       description: "가로폭",
       table: {
         type: { summary: "number" },
@@ -40,7 +42,7 @@ export default {
     conatinerHeight: {
       control: { type: "number" },
       description: "세로폭",
-      defaultValue: 320,
+
       table: {
         type: { summary: "number" },
       },

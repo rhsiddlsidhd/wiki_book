@@ -4,6 +4,7 @@ import Text from "./index";
 export default {
   title: "Atoms/Text",
   component: Text,
+  tags: ["autodocs"],
   argTypes: {
     variant: {
       options: [
@@ -16,11 +17,11 @@ export default {
       ],
       control: { type: "select" },
       defaultValue: "medium",
-
       description: "텍스트 변형",
       table: {
         type: {
-          summary: "extraSmall , small, medium, mediumLarge, large, extraLarge",
+          summary:
+            "extraSmall | small | medium | mediumLarge | large | extraLarge",
         },
         defaultValue: { summary: "medium" },
       },

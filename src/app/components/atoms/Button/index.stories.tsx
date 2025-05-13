@@ -4,11 +4,11 @@ import Button from "./index";
 export default {
   title: "Atoms/Button",
   component: Button,
+  tags: ["autodocs"],
   argTypes: {
     variant: {
       options: ["primary", "secondary"],
       control: { type: "radio" },
-      defaultValue: "primary",
       description: "버튼 변형",
       table: {
         type: { summary: "primary | secondary" },
@@ -17,7 +17,6 @@ export default {
     },
     children: {
       control: { type: "text" },
-      defaultValue: "Button",
       description: "버튼 텍스트",
       table: {
         type: { summary: "string" },
@@ -58,11 +57,10 @@ type Story = StoryObj<typeof Button>;
 
 export const Primary: Story = {
   args: {
-    variant: "secondary",
+    variant: "primary",
     children: "Primary Button",
   },
 };
-Primary.args = { variant: "primary", children: "Primary Button" };
 
 export const Secondary: Story = {
   args: {

@@ -4,6 +4,7 @@ import { SearchIcon, CloudUploadIcon, PersonOutlineIcon } from "./";
 const meta: Meta<typeof SearchIcon> = {
   title: "Atoms/IconButton",
   component: SearchIcon,
+  tags: ["autodocs"],
   argTypes: {
     color: {
       control: { type: "text" },
@@ -21,10 +22,12 @@ const meta: Meta<typeof SearchIcon> = {
     },
     size: {
       control: { type: "number" },
-      defaultValue: 24,
       description: "아이콘 크기",
       table: {
         type: { summary: "number" },
+        defaultValue: {
+          summary: "24",
+        },
       },
     },
     onClick: {
@@ -41,11 +44,16 @@ export default meta;
 type Story = StoryObj<typeof SearchIcon>;
 
 export const Normal: Story = {
-  render: (args) => (
-    <>
-      <SearchIcon {...args} />
-      <CloudUploadIcon {...args} />
-      <PersonOutlineIcon {...args} />
-    </>
-  ),
+  args: {
+    onClick: () => console.log("클릭"),
+  },
+  render: (args) => {
+    return (
+      <>
+        <SearchIcon {...args} />
+        <CloudUploadIcon {...args} />
+        <PersonOutlineIcon {...args} />
+      </>
+    );
+  },
 };

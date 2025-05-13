@@ -4,6 +4,7 @@ import TextArea from "./index";
 export default {
   title: "Atoms/TextArea",
   component: TextArea,
+  tags: ["autodocs"],
   argTypes: {
     placeholder: {
       control: { type: "text" },
@@ -14,34 +15,36 @@ export default {
     },
     rows: {
       control: { type: "number" },
-      defaultValue: 5,
       description: "행 수",
       table: {
         type: { summary: "number" },
+        defaultValue: { summary: "5" },
       },
     },
     minRows: {
       control: { type: "number" },
-      defaultValue: 5,
+
       description: "최소 행 수",
       table: {
         type: { summary: "number" },
+        defaultValue: { summary: "5" },
       },
     },
     maxRows: {
       control: { type: "number" },
-      defaultValue: 10,
+
       description: "최대 행 수",
       table: {
         type: { summary: "number" },
+        defaultValue: { summary: "10" },
       },
     },
     hasError: {
       control: { type: "boolean" },
-      defaultValue: false,
       description: "변형 에러 플래그",
       table: {
         type: { summary: "boolean" },
+        defaultValue: { summary: "false" },
       },
     },
     onChange: {

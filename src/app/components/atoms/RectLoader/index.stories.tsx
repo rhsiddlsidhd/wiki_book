@@ -8,18 +8,18 @@ export default {
   argTypes: {
     width: {
       control: { type: "number" },
-      defaultValue: 320,
       description: "가로폭",
       table: {
         type: { summary: "number" },
+        defaultValue: { summary: "320" },
       },
     },
     height: {
       control: { type: "number" },
       description: "세로폭",
-      defaultValue: 320,
       table: {
         type: { summary: "number" },
+        defaultValue: { summary: "320" },
       },
     },
   },
@@ -28,5 +28,9 @@ export default {
 type Story = StoryObj<typeof RectLoader>;
 
 export const Normal: Story = {
+  args: {
+    width: 320,
+    height: 320,
+  },
   render: (args) => <RectLoader {...args} />,
 };

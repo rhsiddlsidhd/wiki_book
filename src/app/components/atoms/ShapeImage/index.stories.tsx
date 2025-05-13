@@ -4,6 +4,7 @@ import ShapeImage from "./index";
 export default {
   title: "Atoms/ShapeImage",
   component: ShapeImage,
+  tags: ["autodocs"],
   args: {
     shape: "circle",
     width: 320,
@@ -29,18 +30,19 @@ export default {
     },
     width: {
       control: { type: "number" },
-      defaultValue: 320,
       description: "가로폭",
       table: {
         type: { summary: "number" },
+        defaultValue: { summary: "320" },
       },
     },
     height: {
       control: { type: "number" },
       description: "세로폭",
-      defaultValue: 320,
+
       table: {
         type: { summary: "number" },
+        defaultValue: { summary: "320" },
       },
     },
   },

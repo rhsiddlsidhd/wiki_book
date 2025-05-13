@@ -4,6 +4,7 @@ import Badge from "./index";
 export default {
   title: "Atoms/Badge",
   component: Badge,
+  tags: ["autodocs"],
   argTypes: {
     content: {
       control: { type: "text" },

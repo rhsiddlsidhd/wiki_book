@@ -4,20 +4,29 @@ import Input from "./index";
 export default {
   title: "Atoms/Input",
   component: Input,
+  tags: ["autodocs"],
+  args: {
+    placeholder: "Input Box",
+  },
   argTypes: {
     placeholder: {
       control: { type: "text" },
       description: "플레이스홀더",
       table: {
         type: { summary: "string" },
+        defaultValue: {
+          summary: "Input Box",
+        },
       },
     },
     hasBorder: {
       control: { type: "boolean" },
-      defaultValue: true,
       description: "보더 플래그",
       table: {
         type: { summary: "boolean" },
+        defaultValue: {
+          summary: "true",
+        },
       },
     },
     hasError: {
@@ -26,6 +35,9 @@ export default {
       description: "배리에이션 에러 플래그",
       table: {
         type: { summary: "boolean" },
+        defaultValue: {
+          summary: "false",
+        },
       },
     },
   },

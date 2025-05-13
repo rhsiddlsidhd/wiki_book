@@ -15,10 +15,10 @@ export default {
     },
     hasError: {
       control: { type: "boolean" },
-      defaultValue: false,
       description: "변형 에러 플래그",
       table: {
         type: { summary: "boolean" },
+        defaultValue: { summary: "false" },
       },
     },
     placeholder: {

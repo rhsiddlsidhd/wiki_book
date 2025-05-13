@@ -127,9 +127,6 @@ interface DropdownProps {
   onChange?: (selected?: DropdownItem) => void;
 }
 
-/**
- * ドロップダウン
- */
 const Dropdown = (props: DropdownProps) => {
   const { onChange, name, value, options, hasError } = props;
   const initialItem = options.find((i) => i.value === value);
@@ -139,7 +136,6 @@ const Dropdown = (props: DropdownProps) => {
 
   const handleDocumentClick = useCallback(
     (e: MouseEvent | TouchEvent) => {
-      // 自分自身をクリックした場合は何もしない
       if (dropdownRef.current) {
         const elems = dropdownRef.current.querySelectorAll("*");
 
@@ -174,7 +170,6 @@ const Dropdown = (props: DropdownProps) => {
   };
 
   useEffect(() => {
-    // 画面外のクリックとタッチをイベントを設定
     document.addEventListener("click", handleDocumentClick, false);
     document.addEventListener("touchend", handleDocumentClick, false);
 
@@ -182,7 +177,7 @@ const Dropdown = (props: DropdownProps) => {
       document.removeEventListener("click", handleDocumentClick, false);
       document.removeEventListener("touchend", handleDocumentClick, false);
     };
-    // 最初だけ呼び出す
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -199,11 +194,11 @@ const Dropdown = (props: DropdownProps) => {
             <DropdownItem item={selectedItem} />
           </DropdownValue>
         )}
-        {/* 何も選択されてない時はプレースホルダーを表示 */}
+
         {!selectedItem && (
           <DropdownPlaceholder>{props?.placeholder}</DropdownPlaceholder>
         )}
-        {/* ダミーinput */}
+
         <input
           type="hidden"
           name={name}
@@ -212,7 +207,7 @@ const Dropdown = (props: DropdownProps) => {
         />
         <DropdownArrow isOpen={isOpen} />
       </DropdownControl>
-      {/* ドロップダウンを表示 */}
+
       {isOpen && (
         <DropdownMenu>
           {props.options.map((item, idx) => (

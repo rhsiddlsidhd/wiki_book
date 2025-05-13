@@ -66,6 +66,7 @@ const Spinner = (props: SpinnerProps) => {
         fill="none"
         strokeWidth={strokeWidth}
       />
+      StyledSpinner
     </StyledSpinner>
   );
 };
