@@ -29,6 +29,7 @@ const ProductCardListContainer = ({
   category,
   conditions,
 }: ProductCardListContainerProps) => {
+  console.log(category);
   const { products, isLoading } = useSearch(context, {
     category,
     conditions,

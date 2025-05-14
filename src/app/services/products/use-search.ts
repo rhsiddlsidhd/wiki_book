@@ -50,9 +50,6 @@ const useSearch = (
     query.length > 0 ? `${path}?${query}` : path,
     fetcher
   );
-  console.log("path", `${path}?${query}`);
-  console.log(data); // 데이터가 잘 오는지 확인
-  console.log(error); // 에러가 있는지 확인
 
   return {
     products: data ?? initial ?? [],

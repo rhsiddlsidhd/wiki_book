@@ -89,9 +89,9 @@ const SearchPage = (props: { params: Params; searchParams: SearchParams }) => {
             </BreadcrumbItem>
             {/* 빵 부스러기 리스트를 선택한 카테고리에서 생성 */}
             {__slug.length !== 0 &&
-              __slug.slice(0, slug.length - 1).map((category, i) => (
+              __slug.slice(0, __slug.length - 1).map((category, i) => (
                 <BreadcrumbItem key={i}>
-                  <Link href={`/search/${slug.slice(0, i + 1).join("/")}`}>
+                  <Link href={`/search/${__slug.slice(0, i + 1).join("/")}`}>
                     {categoryNameDict[category] ?? "Unknown"}
                   </Link>
                 </BreadcrumbItem>
@@ -99,7 +99,7 @@ const SearchPage = (props: { params: Params; searchParams: SearchParams }) => {
             {__slug.length == 0 && <BreadcrumbItem>모두</BreadcrumbItem>}
             {__slug.length > 0 && (
               <BreadcrumbItem>
-                {categoryNameDict[slug[slug.length - 1]] ?? "Unknown"}
+                {categoryNameDict[__slug[slug.length - 1]] ?? "Unknown"}
               </BreadcrumbItem>
             )}
           </Breadcrumb>
@@ -144,7 +144,9 @@ const SearchPage = (props: { params: Params; searchParams: SearchParams }) => {
                 상품 쿼리로부터 상품 카드 리스트를 표시
                */}
               <ProductCardListContainer
-                category={slug.length > 0 ? slug[slug.length - 1] : undefined}
+                category={
+                  __slug.length > 0 ? __slug[__slug.length - 1] : undefined
+                }
                 conditions={conditions}
               />
             </Box>
