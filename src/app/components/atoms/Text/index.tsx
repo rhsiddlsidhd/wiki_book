@@ -1,3 +1,4 @@
+"use client";
 import { Responsive } from "@/app/types/styles";
 import {
   Color,

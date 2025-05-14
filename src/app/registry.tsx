@@ -2,9 +2,10 @@
 
 import { useServerInsertedHTML } from "next/navigation";
 import React, { useState } from "react";
-import { ThemeProvider } from "styled-components";
+import { StyleSheetManager, ThemeProvider } from "styled-components";
 import { StyleRegistry, createStyleRegistry } from "styled-jsx";
 import theme from "./themes/index";
+import isPropValid from "@emotion/is-prop-valid";
 export default function StyledJsxRegistry({
   children,
 }: {
@@ -20,7 +21,11 @@ export default function StyledJsxRegistry({
 
   return (
     <ThemeProvider theme={theme}>
-      <StyleRegistry registry={jsxStyleRegistry}>{children}</StyleRegistry>
+      <StyleRegistry registry={jsxStyleRegistry}>
+        <StyleSheetManager shouldForwardProp={isPropValid}>
+          {children}
+        </StyleSheetManager>
+      </StyleRegistry>
     </ThemeProvider>
   );
 }

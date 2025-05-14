@@ -1,5 +1,6 @@
 import StyledJsxRegistry from "./registry";
 import GlobalStyleProvider from "./global-style";
+import { StyleSheetManager } from "styled-components";
 /**
  * server and client 분리 패턴
  * https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns

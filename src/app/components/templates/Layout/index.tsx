@@ -1,7 +1,10 @@
-import { Header } from "@/stories/Header";
+"use client";
+
 import Separator from "../../atoms/Separator";
-import { Box } from "@mui/material";
+
 import Footer from "../../organisms/Footer";
+import Box from "../../layout/Box";
+import Header from "../../organisms/Header";
 
 interface LayoutProps {
   children: React.ReactNode;

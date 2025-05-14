@@ -1,3 +1,4 @@
+"use client";
 import { Responsive } from "@/app/types/styles";
 import { Space, toPropValue } from "@/app/utils/styles";
 import { Color } from "@mui/material";
