@@ -33,7 +33,7 @@ export type GetAllProductsParams = {
   page?: number;
 };
 
-const getAllProduct = async (
+const getAllProducts = async (
   context: ApiContext,
   {
     category,
@@ -47,15 +47,15 @@ const getAllProduct = async (
 ): Promise<Product[]> => {
   const path = `${context.apiRootUrl.replace(/\/$/g, "")}/products`;
   const params = new URLSearchParams();
-
-  category && params.append("category", category);
-  conditions &&
+  if (category) params.append("category", category);
+  if (conditions)
     conditions.forEach((condition) => params.append("condition", condition));
-  userId && params.append("owner.id", `${userId}`);
-  page && params.append("_page", `${page}`);
-  limit && params.append("_limit", `${limit}`);
-  sort && params.append("_sort", sort);
-  order && params.append("_order", order);
+
+  if (userId) params.append("owner.id", `${userId}`);
+  if (page) params.append("_page", `${page}`);
+  if (limit) params.append("_limit", `${limit}`);
+  if (sort) params.append("_sort", sort);
+  if (order) params.append("_order", order);
   const query = params.toString();
 
   return await fetcher(query.length > 0 ? `${path}?${query}` : path, {
@@ -68,4 +68,4 @@ const getAllProduct = async (
   });
 };
 
-export default getAllProduct;
+export default getAllProducts;

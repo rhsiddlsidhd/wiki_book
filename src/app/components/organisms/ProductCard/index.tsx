@@ -11,7 +11,7 @@ interface ProductCardProps {
   /**
    * 상품 가격
    */
-  price: number;
+  price: string | number;
   /**
    * 상품 기획 URL
    */

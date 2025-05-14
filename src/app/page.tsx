@@ -1,11 +1,7 @@
-"use client";
+import React from "react";
 
-import Box from "./components/layout/Box";
+const page = () => {
+  return <div>123</div>;
+};
 
-export default function Home() {
-  return (
-    <>
-      <Box>123123</Box>
-    </>
-  );
-}
+export default page;

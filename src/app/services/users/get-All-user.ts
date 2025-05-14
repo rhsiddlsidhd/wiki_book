@@ -1,7 +1,7 @@
 import { ApiContext, User } from "@/app/types/data";
 import { fetcher } from "@/app/utils";
 
-const getAllUser = async (context: ApiContext): Promise<User[]> => {
+const getAllUsers = async (context: ApiContext): Promise<User[]> => {
   return await fetcher(`${context.apiRootUrl.replace(/\/$/g, "")}/users`, {
     headers: {
       Origin: "*",
@@ -11,4 +11,4 @@ const getAllUser = async (context: ApiContext): Promise<User[]> => {
   });
 };
 
-export default getAllUser;
+export default getAllUsers;

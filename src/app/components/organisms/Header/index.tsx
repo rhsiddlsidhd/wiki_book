@@ -2,10 +2,9 @@ import Link from "next/link";
 import styled from "styled-components";
 import Flex from "../../layout/Flex";
 import Text from "../../atoms/Text";
-import { useAuthContext } from "@/app/context/AuthContext";
+import { useAuthContext } from "../../../context/AuthContext";
 import { useShoppingCartContext } from "@/app/context/ShoppingCartContext";
 import AppLogo from "../../atoms/AppLogo";
-import { Box } from "@mui/material";
 import {
   PersonIcon,
   SearchIcon,
@@ -15,6 +14,7 @@ import BadgeIconButton from "../../molecule/BadgeIconButton";
 import ShapeImage from "../../atoms/ShapeImage";
 import Spinner from "../../atoms/Spinner";
 import Button from "../../atoms/Button";
+import Box from "../../layout/Box";
 
 // 헤더 루트
 const HeaderRoot = styled.header`

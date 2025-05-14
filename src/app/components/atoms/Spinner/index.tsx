@@ -46,9 +46,6 @@ type SpinnerProps = {
   isAutoCentering?: boolean;
 };
 
-/**
- * スピナー
- */
 const Spinner = (props: SpinnerProps) => {
   const { size = 50, strokeWidth = 4, isAutoCentering = false } = props;
 
