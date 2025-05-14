@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { Fragment } from "react";
 import { ApiContext, Product } from "../types/data";
@@ -27,7 +28,6 @@ const UserProductCardListContainer = ({
   userId,
   products,
 }: UserProductCardListContainerProps) => {
-  // 사용자가 소요한 상품
   const { products: userProducts } = useSearch(context, {
     userId,
     initial: products,
@@ -38,15 +38,13 @@ const UserProductCardListContainer = ({
       {userProducts.map((p) => (
         <Fragment key={p.id}>
           <Link href={`/products/${p.id}`} passHref>
-            <a>
-              {/* 상품 카드 */}
-              <ProductCard
-                variant="small"
-                title={p.title}
-                price={p.price}
-                imageUrl={p.imageUrl}
-              />
-            </a>
+            {/* 상품 카드 */}
+            <ProductCard
+              variant="small"
+              title={p.title}
+              price={p.price}
+              imageUrl={p.imageUrl}
+            />
           </Link>
         </Fragment>
       ))}

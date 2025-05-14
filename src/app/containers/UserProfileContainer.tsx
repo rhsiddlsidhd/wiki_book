@@ -1,3 +1,4 @@
+"use client";
 import UserProfile from "../components/organisms/UserProfile";
 import useUser from "../services/users/use-users";
 import { ApiContext, User } from "../types/data";

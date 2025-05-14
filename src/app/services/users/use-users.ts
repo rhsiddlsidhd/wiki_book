@@ -1,3 +1,4 @@
+"use client";
 import { ApiContext, User } from "@/app/types/data";
 
 import useSWR from "swr";

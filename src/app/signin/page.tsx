@@ -1,21 +1,23 @@
+"use client";
 import type { NextPage } from "next";
-import { useRouter } from "next/router";
 import Layout from "../components/templates/Layout";
 import Flex from "../components/layout/Flex";
 import { Box } from "@mui/material";
 import AppLogo from "../components/atoms/AppLogo";
 import SigninFormContainer from "../containers/SigninFormContainer";
 
+import { useRouter, useSearchParams } from "next/navigation";
+
 const SigninPage: NextPage = () => {
   const router = useRouter();
-  // 인증 후의 이벤트 핸들러
-  const handleSignin = async (err?: Error) => {
+  const searchParams = useSearchParams();
+
+  const handleSignin = (err?: Error) => {
     if (!err) {
       // 로그인에 성공하고, 쿼리가 지정되어 있을 때는 해당 URL로 이동한다.
       // 기본은 톱 페이지로 이동한다.
-      const redurectTo = (router.query["redirect_to"] as string) ?? "/";
-
-      await router.push(redurectTo);
+      const redurectTo = searchParams.get("redirect_to") ?? "/";
+      router.push(redurectTo);
     }
   };
 

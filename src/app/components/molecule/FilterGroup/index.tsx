@@ -1,3 +1,4 @@
+"use client";
 import { useCallback, useEffect, useState } from "react";
 import Text from "../../atoms/Text";
 import Box from "../../layout/Box";

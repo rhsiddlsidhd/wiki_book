@@ -25,11 +25,11 @@ interface IconWrapperProps {
 }
 
 const IconWrapper = styled.div<IconWrapperProps>`
-  display: inline-block;
   font-size: ${({ size }) => size}px;
   width: ${({ size }) => size}px;
   height: ${({ size }) => size}px;
   background-color: ${({ backgroundColor }) => backgroundColor};
+  filter: brightness(0.1);
   cursor: ${({ cursor }) => cursor ?? "pointer"};
   color: ${({ theme, color }) => {
     if (color) {

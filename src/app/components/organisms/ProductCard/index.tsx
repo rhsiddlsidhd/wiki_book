@@ -1,3 +1,4 @@
+"use client";
 import styled from "styled-components";
 import Box from "../../layout/Box";
 import Text from "../../atoms/Text";

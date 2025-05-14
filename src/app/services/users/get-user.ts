@@ -9,8 +9,8 @@ const getUser = async (
   context: ApiContext,
   { id }: GetUserParams
 ): Promise<any> => {
-  return (
-    await fetcher(`${context.apiRootUrl.replace(/\/$/g, "")}/users/${id}`),
+  return await fetcher(
+    `${context.apiRootUrl.replace(/\/$/g, "")}/users/${id}`,
     {
       headers: {
         Accept: "application/json",
