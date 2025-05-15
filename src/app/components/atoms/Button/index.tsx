@@ -184,6 +184,9 @@ const Button = styled.button<ButtonProps>`
   opacity: ${({ disabled }) => (disabled ? "0.5" : "1")};
   border-radius: 4px;
   border: none;
+  &:active {
+    transform: scale(0.95);
+  }
 `;
 
 export default Button;
