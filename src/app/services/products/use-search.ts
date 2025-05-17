@@ -1,3 +1,5 @@
+"use client";
+
 import { ApiContext, Category, Condition, Product } from "@/app/types/data";
 import { fetcher } from "@/app/utils";
 import useSWR from "swr";

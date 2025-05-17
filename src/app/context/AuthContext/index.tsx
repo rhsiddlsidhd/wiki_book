@@ -1,6 +1,8 @@
+"use client";
 import signout from "@/app/services/auth/signout";
 import signin from "@/app/services/auth/singin";
 import { ApiContext, User } from "@/app/types/data";
+import { fetcher } from "@/app/utils";
 import React, { useContext } from "react";
 import useSWR from "swr";
 
@@ -17,7 +19,6 @@ type AuthContextType = {
 
 type AuthContextProviderProps = {
   context: ApiContext;
-  authUser?: User;
 };
 
 const AuthContext = React.createContext<AuthContextType>({
@@ -37,17 +38,20 @@ export const useAuthContext = (): AuthContextType =>
  */
 export const AuthContextProvider = ({
   context,
-  authUser,
   children,
 }: React.PropsWithChildren<AuthContextProviderProps>) => {
   const { data, error, mutate } = useSWR<User>(
-    `${context.apiRootUrl.replace(/\/$/g, "")}/users/me`
+    `${context.apiRootUrl.replace(/\/$/g, "")}/users/me`,
+    fetcher
   );
+
   const isLoading = !data && !error;
 
   // 로그인
   const signinInternal = async (username: string, password: string) => {
+    console.log(">>> signinInternal 호출됨");
     await signin(context, { username, password });
+    console.log(">>> signin API 요청 완료");
     await mutate();
   };
 
@@ -60,7 +64,7 @@ export const AuthContextProvider = ({
   return (
     <AuthContext.Provider
       value={{
-        authUser: data ?? authUser,
+        authUser: data ?? undefined,
         isLoading,
         signin: signinInternal,
         signout: signoutInternal,

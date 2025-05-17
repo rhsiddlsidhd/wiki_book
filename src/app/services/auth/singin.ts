@@ -10,13 +10,13 @@ const signin = async (
   context: ApiContext,
   params: SigninParams
 ): Promise<any> => {
-  return (
-    await fetcher(`${context.apiRootUrl.replace(/\/$/g, "")}/auth/signin`),
+  return await fetcher(
+    `${context.apiRootUrl.replace(/\/$/g, "")}/auth/signin`,
     {
       method: "POST",
       headers: {
         Accept: "application/json",
-        "Content-Tpye": "application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(params),
     }

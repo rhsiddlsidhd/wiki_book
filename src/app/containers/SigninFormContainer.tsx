@@ -18,12 +18,16 @@ const SigninFormContainer = ({ onSignin }: SigninFormContainerProps) => {
   // 로그인 버튼을 눌렀을 때의 이벤트 핸들러
   const handleSignin = async (username: string, password: string) => {
     try {
+      console.log(signin);
       setGlobalSpinner(true);
+
       await signin(username, password);
+
       if (onSignin) onSignin();
     } catch (err: unknown) {
       if (err instanceof Error) {
         // 에러 내용을 표시한다
+
         window.alert(err.message);
         if (onSignin) onSignin(err);
       }

@@ -1,5 +1,5 @@
+"use client";
 import { Box } from "@mui/material";
-import { Controller, useForm } from "react-hook-form";
 import InputImages, { FileData } from "../../molecule/InputImages";
 import Text from "../../atoms/Text";
 import Input from "../../atoms/Input";
@@ -7,6 +7,7 @@ import TextArea from "../../atoms/TextArea";
 import Dropdown from "../../molecule/Dropdown";
 import Button from "../../atoms/Button";
 import { Category, Condition } from "@/app/types/data";
+import { Controller, useForm } from "react-hook-form";
 
 export type ProductFormData = {
   image: FileData[];
@@ -29,6 +30,7 @@ interface ProductFormProps {
  */
 const ProductForm = ({ onProductSave }: ProductFormProps) => {
   // React Hook Form 사용
+
   const {
     register,
     handleSubmit,

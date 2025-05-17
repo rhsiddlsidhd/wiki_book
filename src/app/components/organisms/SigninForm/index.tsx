@@ -28,6 +28,7 @@ const SigninForm = ({ onSignin }: SigninFormProps) => {
   } = useForm<SigninFormData>();
   const onSubmit = (data: SigninFormData) => {
     const { username, password } = data;
+
     if (onSignin) onSignin(username, password);
   };
 

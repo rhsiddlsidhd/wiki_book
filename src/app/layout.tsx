@@ -1,5 +1,10 @@
 import StyledJsxRegistry from "./registry";
 import GlobalStyleProvider from "./global-style";
+import { AuthContextProvider } from "./context/AuthContext";
+import { ApiContext } from "./types/data";
+import envSchema from "./utils/env";
+import GlobalSpinnerContextProvider from "./context/GlobalSpinnerContext";
+import { ShoppingCartContextProvider } from "./context/ShoppingCartContext";
 
 /**
  * server and client 분리 패턴
@@ -21,14 +26,21 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const context: ApiContext = {
+    apiRootUrl: envSchema.parse(process.env).NEXT_PUBLIC_API_BASE_PATH,
+  };
   return (
     <html>
       <meta key="charset" name="charset" content="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <body>
         <StyledJsxRegistry>
-          <GlobalStyleProvider />
-          {children}
+          <AuthContextProvider context={context}>
+            <ShoppingCartContextProvider>
+              <GlobalStyleProvider />
+              {children}
+            </ShoppingCartContextProvider>
+          </AuthContextProvider>
         </StyledJsxRegistry>
       </body>
     </html>
@@ -42,6 +54,8 @@ You can define multiple "use client" entry points in your React Component tree. 
 
 However, "use client" doesn't need to be defined in every component that needs to be rendered on the client. Once you define the boundary, all child components and modules imported into it are considered part of the client bundle.
  * 부모 컴포넌트가 use client라 해서 자식 요소가 모두 client가 되는게 아니라 파일 내 import 해온 다른 컴포넌트들이 자동으로 클라이언트 번들로 포함된다
+import { fetcher } from '@/app/utils';
+import { fetcher } from './utils/index';
 
   App 디렉토리 nextjs 구조는 명시적인 use client가 없다면 default로 server 컴포넌트로 간주한다
  */

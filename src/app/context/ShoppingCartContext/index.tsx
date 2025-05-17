@@ -1,3 +1,4 @@
+"use client";
 import { Product } from "@/app/types/data";
 import React, { useReducer, useContext } from "react";
 import { ADD_PRODUCT, REMOVE_PRODUCT, shopReducer } from "./reducers";
