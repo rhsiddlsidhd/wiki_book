@@ -1,4 +1,3 @@
-"use client";
 import Link from "next/link";
 import styled from "styled-components";
 import Flex from "../../layout/Flex";
@@ -16,6 +15,7 @@ import ShapeImage from "../../atoms/ShapeImage";
 import Spinner from "../../atoms/Spinner";
 import Button from "../../atoms/Button";
 import Box from "../../layout/Box";
+import TabList from "../TabList.tsx";
 
 // 헤더 루트
 const HeaderRoot = styled.header`
@@ -62,34 +62,7 @@ const Header = () => {
               </Anchor>
             </Link>
           </NavLink>
-          <NavLink>
-            <Box display={{ base: "none", md: "block" }}>
-              <Link href="/search" passHref>
-                <Anchor>모두</Anchor>
-              </Link>
-            </Box>
-          </NavLink>
-          <NavLink>
-            <Box display={{ base: "none", md: "block" }}>
-              <Link href="/search/clothes" passHref>
-                <Anchor>의류</Anchor>
-              </Link>
-            </Box>
-          </NavLink>
-          <NavLink>
-            <Box display={{ base: "none", md: "block" }}>
-              <Link href="/search/book" passHref>
-                <Anchor>책</Anchor>
-              </Link>
-            </Box>
-          </NavLink>
-          <NavLink>
-            <Box display={{ base: "none", md: "block" }}>
-              <Link href="/search/shoes" passHref>
-                <Anchor>신발</Anchor>
-              </Link>
-            </Box>
-          </NavLink>
+          <TabList />
         </Nav>
         <Nav as="nav" height="56px" alignItems="center">
           <NavLink>
