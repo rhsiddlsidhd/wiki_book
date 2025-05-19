@@ -1,3 +1,4 @@
+"use client";
 import Grid from "../../layout/Grid";
 
 interface ProductCardListProps {

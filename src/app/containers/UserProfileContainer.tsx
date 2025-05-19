@@ -1,4 +1,5 @@
 "use client";
+import Spinner from "../components/atoms/Spinner";
 import UserProfile from "../components/organisms/UserProfile";
 import useUser from "../services/users/use-users";
 import { ApiContext, User } from "../types/data";
@@ -24,9 +25,10 @@ interface UserProfileContainerProps {
 const UserProfileContainer = ({ userId, user }: UserProfileContainerProps) => {
   // 최신 사용자 정보를 얻어 업데이트가 있을 때는
   // initial에 지정되어 있는 데이터를 덮어 쓴다
+
   const { user: u } = useUser(context, { id: userId, initial: user });
 
-  if (!u) return <div>Loading...</div>;
+  if (!u) return <Spinner />;
 
   return (
     <UserProfile

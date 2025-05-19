@@ -1,3 +1,4 @@
+"use client";
 import { Box } from "@mui/material";
 import Flex from "../../layout/Flex";
 import ShapeImage from "../../atoms/ShapeImage";

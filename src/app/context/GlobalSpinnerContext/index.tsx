@@ -4,7 +4,6 @@ import React, { useState, useContext, createContext } from "react";
 const GlobalSpinnerContext = createContext<boolean>(false);
 const GlobalSpinnerActionsContext = createContext<
   React.Dispatch<React.SetStateAction<boolean>>
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
 >(() => {});
 
 // 글로벌 스피너 표시/비표시

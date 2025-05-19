@@ -38,7 +38,8 @@ import AddToCartButtonContainer from "@/app/containers/AddToCartButtonContainer"
 import getAllProducts from "@/app/services/products/get-all-products";
 import getProduct from "@/app/services/products/get-product";
 import { ApiContext, Category } from "@/app/types/data";
-import envSchema from "@/app/utils/env";
+import { API_BASE_URL } from "@/app/utils/env";
+
 import Link from "next/link";
 
 const categoryNameDict: Record<Category, string> = {
@@ -47,18 +48,25 @@ const categoryNameDict: Record<Category, string> = {
   clothes: "의류",
 };
 // http://localhost:8000/products/1
-const context: ApiContext = {
-  apiRootUrl: envSchema.parse(process.env).API_BASE_URL,
-};
+// const context: ApiContext = {
+//   apiRootUrl: envSchema.parse(process.env).API_BASE_URL,
+// };
 
 export const revalidate = 10;
 
 export const generateStaticParams = async () => {
+  const context: ApiContext = {
+    apiRootUrl: API_BASE_URL,
+  };
+
   const products = await getAllProducts(context);
   return products.map(({ id }) => ({ id: id.toString() }));
 };
 
 const productPage = async ({ params }: { params: Promise<{ id: string }> }) => {
+  const context: ApiContext = {
+    apiRootUrl: API_BASE_URL,
+  };
   const { id } = await params;
 
   const product = await getProduct(context, { id: Number(id) });

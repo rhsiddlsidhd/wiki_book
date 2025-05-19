@@ -7,7 +7,7 @@ import Layout from "./components/templates/Layout";
 import Flex from "./components/layout/Flex";
 import Text from "./components/atoms/Text";
 import getAllProducts from "./services/products/get-all-products";
-import envSchema from "./utils/env";
+import { API_BASE_URL } from "./utils/env";
 
 export const revalidate = 60;
 export const dynamicParams = true;
@@ -16,7 +16,7 @@ const Page = async () => {
   // 상품 카드 캐러셀을 렌더링
 
   const context: ApiContext = {
-    apiRootUrl: envSchema.parse(process.env).API_BASE_URL,
+    apiRootUrl: API_BASE_URL,
   };
   const [clothesProducts, bookProducts, shoesProducts] = await Promise.all([
     getAllProducts(context, { category: "clothes", limit: 6, page: 1 }),
