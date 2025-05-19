@@ -6,17 +6,14 @@ import ProductForm, {
 import { useAuthContext } from "../context/AuthContext";
 import { useGlobalSpinnerActionsContext } from "../context/GlobalSpinnerContext";
 import addProduct from "../services/products/add-product";
-import { ApiContext, Product } from "../types/data";
 import { useAuthGuard } from "../utils/hook";
-
-const context: ApiContext = {
-  apiRootUrl: process.env.NEXT_PUBLIC_API_BASE_PATH || "/api/proxy",
-};
+import getApiContext from "../utils/env";
 
 /**
  * 상품 게시폼 컨테이너
  */
 const ProductFormContainer = () => {
+  const context = getApiContext({ key: "client" });
   useAuthGuard();
   const router = useRouter();
   const { authUser } = useAuthContext();

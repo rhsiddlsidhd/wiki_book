@@ -8,27 +8,21 @@
  *
  */
 
-// import BreadcrumbItem from "@/app/components/atoms/BreadcrumbItem";
-// import Text from "@/app/components/atoms/Text";
 import BreadcrumbItem from "@/app/components/atoms/BreadcrumbItem";
 import Box from "@/app/components/layout/Box";
 import Breadcrumb from "@/app/components/molecule/Breadcrumb";
-// import Flex from "@/app/components/layout/Flex";
-// import Breadcrumb from "@/app/components/molecule/Breadcrumb";
+
 import Layout from "@/app/components/templates/Layout";
 import Link from "next/link";
-// import ProductCardListContainer from "@/app/containers/ProductCardListContainer";
 
 import { Category, Condition } from "@/app/types/data";
-// import Link from "next/link";
+
 import { use } from "react";
 import Text from "@/app/components/atoms/Text";
-// import styled from "styled-components";
+
 import Flex from "./../../components/layout/Flex/index";
 import FilterGroupWithRouter from "./FilterGroupWithRouter";
 import ProductCardListContainer from "@/app/containers/ProductCardListContainer";
-// import ProductCardListContainer from "@/app/containers/ProductCardListContainer";
-// import styled from "styled-components";
 
 // const Anchor = styled(Text)`
 //   cursor: pointer;

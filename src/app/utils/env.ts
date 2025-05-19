@@ -1,7 +1,22 @@
-import { z } from "zod";
+import { ApiContext } from "../types/data";
 
-export const NEXT_PUBLIC_API_BASE_PATH = z
-  .string()
-  .parse(process.env.NEXT_PUBLIC_API_BASE_PATH);
+type Key = "serve" | "client";
+interface GetApiContextProps {
+  key: "serve" | "client";
+}
+const getApiContext = ({ key }: GetApiContextProps): ApiContext => {
+  const path =
+    key === "serve"
+      ? process.env.API_BASE_URL
+      : process.env.NEXT_PUBLIC_API_BASE_PATH;
 
-export const API_BASE_URL = z.string().parse(process.env.API_BASE_URL);
+  if (!path) {
+    throw new Error(`Environment is undefined`);
+  }
+
+  return {
+    apiRootUrl: path,
+  };
+};
+
+export default getApiContext;

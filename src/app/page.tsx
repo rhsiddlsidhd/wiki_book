@@ -1,13 +1,13 @@
 import Link from "next/link";
 import ProductCardCarousel from "./components/organisms/ProductCardCaraousel";
-import { ApiContext, Product } from "./types/data";
+import { Product } from "./types/data";
 import Box from "./components/layout/Box";
 import ProductCard from "./components/organisms/ProductCard";
 import Layout from "./components/templates/Layout";
 import Flex from "./components/layout/Flex";
 import Text from "./components/atoms/Text";
 import getAllProducts from "./services/products/get-all-products";
-import { API_BASE_URL } from "./utils/env";
+import getApiContext from "./utils/env";
 
 export const revalidate = 60;
 export const dynamicParams = true;
@@ -15,9 +15,7 @@ export const dynamicParams = true;
 const Page = async () => {
   // 상품 카드 캐러셀을 렌더링
 
-  const context: ApiContext = {
-    apiRootUrl: API_BASE_URL,
-  };
+  const context = getApiContext({ key: "serve" });
   const [clothesProducts, bookProducts, shoesProducts] = await Promise.all([
     getAllProducts(context, { category: "clothes", limit: 6, page: 1 }),
     getAllProducts(context, { category: "book", limit: 6, page: 1 }),

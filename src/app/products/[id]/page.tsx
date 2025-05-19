@@ -38,7 +38,7 @@ import AddToCartButtonContainer from "@/app/containers/AddToCartButtonContainer"
 import getAllProducts from "@/app/services/products/get-all-products";
 import getProduct from "@/app/services/products/get-product";
 import { ApiContext, Category } from "@/app/types/data";
-import { API_BASE_URL } from "@/app/utils/env";
+import getApiContext from "@/app/utils/env";
 
 import Link from "next/link";
 
@@ -48,24 +48,23 @@ const categoryNameDict: Record<Category, string> = {
   clothes: "의류",
 };
 // http://localhost:8000/products/1
-// const context: ApiContext = {
-//   apiRootUrl: envSchema.parse(process.env).API_BASE_URL,
-// };
 
 export const revalidate = 10;
 
 export const generateStaticParams = async () => {
-  const context: ApiContext = {
-    apiRootUrl: API_BASE_URL,
-  };
+  const context = getApiContext({ key: "serve" });
 
   const products = await getAllProducts(context);
   return products.map(({ id }) => ({ id: id.toString() }));
 };
 
 const productPage = async ({ params }: { params: Promise<{ id: string }> }) => {
+  const path = process.env.API_BASE_URL;
+  if (!path) {
+    throw new Error("API_BASE_URL is not defined");
+  }
   const context: ApiContext = {
-    apiRootUrl: API_BASE_URL,
+    apiRootUrl: path,
   };
   const { id } = await params;
 

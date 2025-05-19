@@ -5,7 +5,6 @@ import { AuthContextProvider } from "./context/AuthContext";
 import { ShoppingCartContextProvider } from "./context/ShoppingCartContext";
 import Head from "next/head";
 import GlobalSpinnerContextProvider from "./context/GlobalSpinnerContext";
-import { ApiConfigContextProvider } from "./context/ApiConfigContext";
 
 /**
  * server and client 분리 패턴
@@ -54,14 +53,12 @@ export default function RootLayout({
       <body>
         <StyledJsxRegistry>
           <GlobalSpinnerContextProvider>
-            <ApiConfigContextProvider>
-              <AuthContextProvider>
-                <ShoppingCartContextProvider>
-                  <GlobalStyleProvider />
-                  {children}
-                </ShoppingCartContextProvider>
-              </AuthContextProvider>
-            </ApiConfigContextProvider>
+            <AuthContextProvider>
+              <ShoppingCartContextProvider>
+                <GlobalStyleProvider />
+                {children}
+              </ShoppingCartContextProvider>
+            </AuthContextProvider>
           </GlobalSpinnerContextProvider>
         </StyledJsxRegistry>
       </body>

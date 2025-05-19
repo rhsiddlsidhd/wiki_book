@@ -1,7 +1,6 @@
 "use client";
 import { Responsive } from "@/app/types/styles";
-import { Space, toPropValue } from "@/app/utils/styles";
-import { Color } from "@mui/material";
+import { Color, Space, toPropValue } from "@/app/utils/styles";
 import styled from "styled-components";
 
 export type BoxProps = {

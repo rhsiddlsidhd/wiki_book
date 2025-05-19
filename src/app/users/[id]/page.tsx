@@ -8,11 +8,10 @@ import UserProfileContainer from "@/app/containers/UserProfileContainer";
 import getAllProducts from "@/app/services/products/get-all-products";
 import getAllUsers from "@/app/services/users/get-All-user";
 import getUser from "@/app/services/users/get-user";
-import { ApiContext } from "@/app/types/data";
 
 import Box from "@/app/components/layout/Box";
 import Link from "next/link";
-import { API_BASE_URL } from "@/app/utils/env";
+import getApiContext from "@/app/utils/env";
 
 /**
  * navigate는 useRouter를 이용
@@ -21,9 +20,7 @@ import { API_BASE_URL } from "@/app/utils/env";
  */
 
 export const generateStaticParams = async () => {
-  const context: ApiContext = {
-    apiRootUrl: API_BASE_URL,
-  };
+  const context = getApiContext({ key: "serve" });
 
   const users = await getAllUsers(context);
   return users.map(({ id }) => ({
@@ -34,9 +31,7 @@ export const generateStaticParams = async () => {
 export const revalidate = 10;
 
 const UserPage = async ({ params }: { params: Promise<{ id: string }> }) => {
-  const context: ApiContext = {
-    apiRootUrl: API_BASE_URL,
-  };
+  const context = getApiContext({ key: "serve" });
   const { id } = await params;
   const userId = Number(id);
 

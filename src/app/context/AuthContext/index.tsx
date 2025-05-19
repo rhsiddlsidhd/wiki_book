@@ -3,10 +3,10 @@ import signout from "@/app/services/auth/signout";
 import signin from "@/app/services/auth/singin";
 import { User } from "@/app/types/data";
 import { fetcher } from "@/app/utils";
+import getApiContext from "@/app/utils/env";
 
 import React, { useContext } from "react";
 import useSWR from "swr";
-import { useApiConfigContext } from "../ApiConfigContext";
 
 type AuthContextType = {
   authUser?: User;
@@ -39,7 +39,7 @@ export const AuthContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const context = useApiConfigContext();
+  const context = getApiContext({ key: "client" });
 
   const { data, error, mutate } = useSWR<User>(
     `${context.apiRootUrl.replace(/\/$/g, "")}/users/me`,

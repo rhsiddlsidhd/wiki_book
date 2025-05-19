@@ -1,18 +1,16 @@
-'use client'
+"use client";
 import CartProduct from "../components/organisms/CartProduct";
 import { useGlobalSpinnerActionsContext } from "../context/GlobalSpinnerContext";
 import { useShoppingCartContext } from "../context/ShoppingCartContext";
 import purchase from "../services/purchase/purchase";
 import { ApiContext } from "../types/data";
-
-const context: ApiContext = {
-  apiRootUrl: process.env.NEXT_PUBLIC_API_BASE_PATH || "/api/proxy",
-};
+import getApiContext from "../utils/env";
 
 /**
  * 카트 컨테이너
  */
 const CartContainer = () => {
+  const context = getApiContext({ key: "client" });
   const setGlobalSpinner = useGlobalSpinnerActionsContext();
   const { cart, removeProductFromCart } = useShoppingCartContext();
   // 삭제 버튼 클릭 시, 상품을 삭제
