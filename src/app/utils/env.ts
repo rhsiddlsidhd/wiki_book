@@ -1,8 +1,7 @@
 import { z } from "zod";
 
-const envSchema = z.object({
-  API_BASE_URL: z.string(),
-  NEXT_PUBLIC_API_BASE_PATH: z.string(),
-});
+export const NEXT_PUBLIC_API_BASE_PATH = z
+  .string()
+  .parse(process.env.NEXT_PUBLIC_API_BASE_PATH);
 
-export default envSchema;
+export const API_BASE_URL = z.string().parse(process.env.API_BASE_URL);

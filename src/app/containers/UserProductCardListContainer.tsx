@@ -1,14 +1,14 @@
 "use client";
 import Link from "next/link";
 import { Fragment } from "react";
-import { ApiContext, Product } from "../types/data";
+import { Product } from "../types/data";
 import ProductCardList from "../components/organisms/ProductCardList";
 import useSearch from "../services/products/use-search";
 import ProductCard from "../components/organisms/ProductCard";
 
-const context: ApiContext = {
-  apiRootUrl: process.env.NEXT_PUBLIC_API_BASE_PATH || "/api/proxy",
-};
+import Spinner from "../components/atoms/Spinner";
+
+import { useApiConfigContext } from "../context/ApiConfigContext";
 
 interface UserProductCardListContainerProps {
   /**
@@ -28,10 +28,14 @@ const UserProductCardListContainer = ({
   userId,
   products,
 }: UserProductCardListContainerProps) => {
-  const { products: userProducts } = useSearch(context, {
+  const context = useApiConfigContext();
+
+  const { products: userProducts, isLoading } = useSearch(context, {
     userId,
     initial: products,
   });
+
+  if (isLoading) return <Spinner />;
 
   return (
     <ProductCardList numberPerRow={6} numberPerRowForMobile={2}>

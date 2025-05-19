@@ -1,10 +1,10 @@
 import StyledJsxRegistry from "./registry";
 import GlobalStyleProvider from "./global-style";
 import { AuthContextProvider } from "./context/AuthContext";
-import { ApiContext } from "./types/data";
-import envSchema from "./utils/env";
-import GlobalSpinnerContextProvider from "./context/GlobalSpinnerContext";
+
 import { ShoppingCartContextProvider } from "./context/ShoppingCartContext";
+import GlobalSpinnerContextProvider from "./context/GlobalSpinnerContext";
+import { ApiConfigContextProvider } from "./context/ApiConfigContext";
 
 /**
  * server and client 분리 패턴
@@ -26,21 +26,22 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const context: ApiContext = {
-    apiRootUrl: envSchema.parse(process.env).NEXT_PUBLIC_API_BASE_PATH,
-  };
   return (
     <html>
       <meta key="charset" name="charset" content="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <body>
         <StyledJsxRegistry>
-          <AuthContextProvider context={context}>
-            <ShoppingCartContextProvider>
-              <GlobalStyleProvider />
-              {children}
-            </ShoppingCartContextProvider>
-          </AuthContextProvider>
+          <GlobalSpinnerContextProvider>
+            <ApiConfigContextProvider>
+              <AuthContextProvider>
+                <ShoppingCartContextProvider>
+                  <GlobalStyleProvider />
+                  {children}
+                </ShoppingCartContextProvider>
+              </AuthContextProvider>
+            </ApiConfigContextProvider>
+          </GlobalSpinnerContextProvider>
         </StyledJsxRegistry>
       </body>
     </html>

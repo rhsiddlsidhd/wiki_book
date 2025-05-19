@@ -1,10 +1,12 @@
 "use client";
 import signout from "@/app/services/auth/signout";
 import signin from "@/app/services/auth/singin";
-import { ApiContext, User } from "@/app/types/data";
+import { User } from "@/app/types/data";
 import { fetcher } from "@/app/utils";
+
 import React, { useContext } from "react";
 import useSWR from "swr";
+import { useApiConfigContext } from "../ApiConfigContext";
 
 type AuthContextType = {
   authUser?: User;
@@ -15,10 +17,6 @@ type AuthContextType = {
     data?: User | Promise<User>,
     shouldRevalidate?: boolean
   ) => Promise<User | undefined>;
-};
-
-type AuthContextProviderProps = {
-  context: ApiContext;
 };
 
 const AuthContext = React.createContext<AuthContextType>({
@@ -37,9 +35,12 @@ export const useAuthContext = (): AuthContextType =>
  * @param params 파라미터
  */
 export const AuthContextProvider = ({
-  context,
   children,
-}: React.PropsWithChildren<AuthContextProviderProps>) => {
+}: {
+  children: React.ReactNode;
+}) => {
+  const context = useApiConfigContext();
+
   const { data, error, mutate } = useSWR<User>(
     `${context.apiRootUrl.replace(/\/$/g, "")}/users/me`,
     fetcher

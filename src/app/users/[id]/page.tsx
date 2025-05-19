@@ -1,6 +1,5 @@
 import BreadcrumbItem from "@/app/components/atoms/BreadcrumbItem";
 import Separator from "@/app/components/atoms/Separator";
-
 import Flex from "@/app/components/layout/Flex";
 import Breadcrumb from "@/app/components/molecule/Breadcrumb";
 import Layout from "@/app/components/templates/Layout";
@@ -10,9 +9,10 @@ import getAllProducts from "@/app/services/products/get-all-products";
 import getAllUsers from "@/app/services/users/get-All-user";
 import getUser from "@/app/services/users/get-user";
 import { ApiContext } from "@/app/types/data";
-import envSchema from "@/app/utils/env";
+
 import Box from "@/app/components/layout/Box";
 import Link from "next/link";
+import { API_BASE_URL } from "@/app/utils/env";
 
 /**
  * navigate는 useRouter를 이용
@@ -22,7 +22,7 @@ import Link from "next/link";
 
 export const generateStaticParams = async () => {
   const context: ApiContext = {
-    apiRootUrl: envSchema.parse(process.env).API_BASE_URL,
+    apiRootUrl: API_BASE_URL,
   };
 
   const users = await getAllUsers(context);
@@ -35,7 +35,7 @@ export const revalidate = 10;
 
 const UserPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const context: ApiContext = {
-    apiRootUrl: envSchema.parse(process.env).API_BASE_URL,
+    apiRootUrl: API_BASE_URL,
   };
   const { id } = await params;
   const userId = Number(id);
