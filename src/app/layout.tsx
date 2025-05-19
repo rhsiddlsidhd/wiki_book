@@ -5,6 +5,7 @@ import { ApiContext } from "./types/data";
 import envSchema from "./utils/env";
 import GlobalSpinnerContextProvider from "./context/GlobalSpinnerContext";
 import { ShoppingCartContextProvider } from "./context/ShoppingCartContext";
+import Head from "next/head";
 
 /**
  * server and client 분리 패턴
@@ -31,8 +32,28 @@ export default function RootLayout({
   };
   return (
     <html>
-      <meta key="charset" name="charset" content="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <Head>
+        <title>wikibook C2C</title>
+        <meta key="charset" name="charset" content="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+          name="description"
+          content="wikibook C2C는 실전적인 Next.js 애플리케이션 개발에 사용되는 데모 애플리케이션입니다."
+        />
+        <meta property="og:site_name" content="wikibook C2C" />
+        <meta property="og:title" content="wikibook C2C의 톱페이지" />
+        <meta
+          property="og:description"
+          content="wikibook C2C는 실전적인 Next.js 애플리케이션 개발에 사용되는 데모 애플리케이션입니다."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://localhost:3000" />
+        <meta
+          property="og:imgae"
+          content="http://localhost:3000/thumbnail.png"
+        />
+        <meta property="og:locale" content="ko_KR" />
+      </Head>
       <body>
         <StyledJsxRegistry>
           <AuthContextProvider context={context}>
