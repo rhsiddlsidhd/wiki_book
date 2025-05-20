@@ -51,9 +51,9 @@ const FilterGroup = ({
       <Text fontWeight="bold" variant="mediumLarge">
         {title}
       </Text>
-      <Box marginTop={2}>
+      <Box $marginTop={2}>
         {items.map(({ label, name }, i) => (
-          <Box key={i} marginTop={i === 0 ? 0 : "4px"}>
+          <Box key={i} $marginTop={i === 0 ? 0 : "4px"}>
             <CheckBox
               name={name}
               label={label}

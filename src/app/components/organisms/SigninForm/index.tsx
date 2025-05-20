@@ -34,7 +34,7 @@ const SigninForm = ({ onSignin }: SigninFormProps) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Box marginBottom={1}>
+      <Box $marginBottom={1}>
         {/* 로그인 사용자명 입력 */}
         <Input
           {...register("username", { required: true })}
@@ -49,7 +49,7 @@ const SigninForm = ({ onSignin }: SigninFormProps) => {
           </Text>
         )}
       </Box>
-      <Box marginBottom={2}>
+      <Box $marginBottom={2}>
         {/* 로그인 비밀번호 입력 */}
         <Input
           {...register("password", { required: true })}
@@ -64,7 +64,7 @@ const SigninForm = ({ onSignin }: SigninFormProps) => {
           </Text>
         )}
       </Box>
-      <Button width="100%" type="submit">
+      <Button $width="100%" type="submit">
         로그인
       </Button>
     </form>

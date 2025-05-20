@@ -43,14 +43,14 @@ const UserPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   return (
     <Layout>
       <Flex
-        paddingTop={2}
-        paddingBottom={2}
-        paddingLeft={{ base: 2, md: 0 }}
-        paddingRight={{ base: 2, md: 0 }}
-        justifyContent="center"
+        $paddingTop={2}
+        $paddingBottom={2}
+        $paddingLeft={{ base: 2, md: 0 }}
+        $paddingRight={{ base: 2, md: 0 }}
+        $justifyContent="center"
       >
-        <Box width="1180px">
-          <Box marginBottom={2}>
+        <Box $width="1180px">
+          <Box $marginBottom={2}>
             <Breadcrumb>
               <BreadcrumbItem>
                 <Link href="/">톱</Link>
@@ -59,14 +59,14 @@ const UserPage = async ({ params }: { params: Promise<{ id: string }> }) => {
             </Breadcrumb>
           </Box>
           <Box>
-            <Box marginBottom={1}>
+            <Box $marginBottom={1}>
               {/*
                 사용자 프로파일 컨테이너
                 사용자 정보를 표시한다. useUser로 항상 최신 데이터를 얻는다.
               */}
               <UserProfileContainer userId={userId} user={user} />
             </Box>
-            <Box marginBottom={1}>
+            <Box $marginBottom={1}>
               <Separator />
             </Box>
             {/*

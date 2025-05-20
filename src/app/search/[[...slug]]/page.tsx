@@ -62,18 +62,18 @@ const SearchPage = (props: { params: Params; searchParams: SearchParams }) => {
   return (
     <Layout>
       <Box
-        paddingLeft={{
+        $paddingLeft={{
           base: 2,
           md: 3,
         }}
-        paddingRight={{
+        $paddingRight={{
           base: 2,
           md: 3,
         }}
-        paddingTop={2}
-        paddingBottom={2}
+        $paddingTop={2}
+        $paddingBottom={2}
       >
-        <Box marginBottom={1}>
+        <Box $marginBottom={1}>
           <Breadcrumb>
             <BreadcrumbItem>
               <Link href="/">톱</Link>
@@ -99,12 +99,16 @@ const SearchPage = (props: { params: Params; searchParams: SearchParams }) => {
           </Breadcrumb>
         </Box>
         <Flex>
-          <Flex flexDirection={{ base: "column", md: "row" }}>
-            <Box as="aside" minWidth="200px" marginBottom={{ base: 2, md: 0 }}>
+          <Flex $flexDirection={{ base: "column", md: "row" }}>
+            <Box
+              as="aside"
+              $minWidth="200px"
+              $marginBottom={{ base: 2, md: 0 }}
+            >
               {/* 상품 상태 필터 */}
 
               {<FilterGroupWithRouter slug={__slug} conditions={conditions} />}
-              <Box paddingTop={1}>
+              <Box $paddingTop={1}>
                 <Text as="h2" fontWeight="bold" variant="mediumLarge">
                   카테고리
                 </Text>
@@ -115,7 +119,7 @@ const SearchPage = (props: { params: Params; searchParams: SearchParams }) => {
                 </Box>
                 {Object.keys(categoryNameDict).map(
                   (category: string, i: number) => (
-                    <Box key={i} marginTop={1}>
+                    <Box key={i} $marginTop={1}>
                       <Link href={`/search/${category}`} passHref>
                         {categoryNameDict[category as Category]}
                       </Link>

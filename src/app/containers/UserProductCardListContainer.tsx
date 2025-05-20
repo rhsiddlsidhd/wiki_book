@@ -7,8 +7,7 @@ import useSearch from "../services/products/use-search";
 import ProductCard from "../components/organisms/ProductCard";
 
 import Spinner from "../components/atoms/Spinner";
-
-import { useApiConfigContext } from "../context/ApiConfigContext";
+import getApiContext from "../utils/env";
 
 interface UserProductCardListContainerProps {
   /**
@@ -28,7 +27,7 @@ const UserProductCardListContainer = ({
   userId,
   products,
 }: UserProductCardListContainerProps) => {
-  const context = useApiConfigContext();
+  const context = getApiContext({ key: "client" });
 
   const { products: userProducts, isLoading } = useSearch(context, {
     userId,

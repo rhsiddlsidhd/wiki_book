@@ -46,10 +46,7 @@ export const Login = () => {
 
   return (
     <ShoppingCartContextProvider>
-      <AuthContextProvider
-        context={{ apiRootUrl: "https://dummy" }}
-        authUser={authUser}
-      >
+      <AuthContextProvider>
         <ChildComponent />
       </AuthContextProvider>
     </ShoppingCartContextProvider>

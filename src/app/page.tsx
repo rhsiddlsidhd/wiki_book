@@ -26,7 +26,7 @@ const Page = async () => {
     return (
       <ProductCardCarousel>
         {products.map((p: Product, i: number) => (
-          <Box paddingLeft={i === 0 ? 0 : 2} key={p.id}>
+          <Box $paddingLeft={i === 0 ? 0 : 2} key={p.id}>
             <Link href={`/products/${p.id}`} passHref>
               <ProductCard
                 variant="small"
@@ -44,14 +44,14 @@ const Page = async () => {
 
   return (
     <Layout>
-      <Flex padding={2} justifyContent="center" backgroundColor="primary">
+      <Flex $padding={2} $justifyContent="center" $backgroundColor="primary">
         <Flex
-          width={{ base: "100%", md: "1040px" }}
-          justifyContent="space-between"
-          alignItems="center"
-          flexDirection={{ base: "column", md: "row" }}
+          $width={{ base: "100%", md: "1040px" }}
+          $justifyContent="space-between"
+          $alignItems="center"
+          $flexDirection={{ base: "column", md: "row" }}
         >
-          <Box width="100%">
+          <Box $width="100%">
             <Text as="h1" marginBottom={0} color="white" variant="extraLarge">
               Wiki C2C에서
             </Text>
@@ -59,7 +59,7 @@ const Page = async () => {
               마음에 드는 아이템을 찾자
             </Text>
           </Box>
-          <Box width="100%">
+          <Box $width="100%">
             <Text as="p" color="white" variant="mediumLarge">
               Wiki C2C는 실전적인 Next.js 애플리케이션 개발에서 사용되는 데모
               애플리케이션입니다. 목 서버를 사용하고 있습니다. 소스 코드는
@@ -82,19 +82,19 @@ const Page = async () => {
           </Box>
         </Flex>
       </Flex>
-      <Flex paddingBottom={2} justifyContent="center">
+      <Flex $paddingBottom={2} $justifyContent="center">
         <Box
-          paddingLeft={{ base: 2, md: 0 }}
-          paddingRight={{ base: 2, md: 0 }}
-          width={{ base: "100%", md: "1040px" }}
+          $paddingLeft={{ base: 2, md: 0 }}
+          $paddingRight={{ base: 2, md: 0 }}
+          $width={{ base: "100%", md: "1040px" }}
         >
-          <Box marginBottom={3}>
+          <Box $marginBottom={3}>
             <Text as="h2" variant="large">
               의류
             </Text>
             {renderProductCardCarousel(clothesProducts)}
           </Box>
-          <Box marginBottom={3}>
+          <Box $marginBottom={3}>
             <Text as="h2" variant="large">
               책
             </Text>

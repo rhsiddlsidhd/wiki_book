@@ -50,9 +50,7 @@ export const AuthContextProvider = ({
 
   // 로그인
   const signinInternal = async (username: string, password: string) => {
-    console.log(">>> signinInternal 호출됨");
     await signin(context, { username, password });
-    console.log(">>> signin API 요청 완료");
     await mutate();
   };
 

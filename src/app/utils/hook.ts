@@ -20,5 +20,5 @@ export const useAuthGuard = (): void => {
       // });
       router.push(`/signin?redirect_to=${pathname}`);
     }
-  }, [authUser, isLoading]);
+  }, [authUser, isLoading, pathname, router]);
 };

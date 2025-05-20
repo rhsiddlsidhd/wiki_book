@@ -89,7 +89,7 @@ const DropdownItem = (props: DropdownItemProps) => {
   const { item } = props;
 
   return (
-    <Flex alignItems="center">
+    <Flex $alignItems="center">
       <Text margin={0} variant="small">
         {item.label ?? item.value}
       </Text>

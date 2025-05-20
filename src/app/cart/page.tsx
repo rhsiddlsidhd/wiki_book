@@ -7,7 +7,6 @@ import BreadcrumbItem from "./../components/atoms/BreadcrumbItem/index";
 import Text from "../components/atoms/Text";
 import CartContainer from "../containers/CartContainer";
 import Box from "../components/layout/Box";
-import { useAuthGuard } from "../utils/hook";
 
 const CartPage: NextPage = () => {
   // 인증 가드
@@ -15,18 +14,16 @@ const CartPage: NextPage = () => {
   // 로그인 한 유저인지 아닌지 유뮤 확인
   // current 로그인 유무는
 
-  // useAuthGuard();
-
   return (
     <Layout>
       <Flex
-        paddingTop={2}
-        paddingBottom={2}
-        paddingLeft={{ base: 2, md: 0 }}
-        paddingRight={{ base: 2, md: 0 }}
-        justifyContent="center"
+        $paddingTop={2}
+        $paddingBottom={2}
+        $paddingLeft={{ base: 2, md: 0 }}
+        $paddingRight={{ base: 2, md: 0 }}
+        $justifyContent="center"
       >
-        <Box width="1240px">
+        <Box $width="1240px">
           <Breadcrumb>
             <BreadcrumbItem>
               <Link href="/">톱</Link>

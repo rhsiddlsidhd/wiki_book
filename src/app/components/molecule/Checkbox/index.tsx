@@ -57,7 +57,7 @@ const CheckBox = (props: CheckBoxProps) => {
         readOnly={!onChange}
         onChange={onChange}
       />
-      <Flex alignItems="center">
+      <Flex $alignItems="center">
         {/* 체크 박스 ON/OFF 그리기 */}
         {(checked ?? isChecked) ? (
           <CheckBoxIcon size={20} onClick={onClick} />

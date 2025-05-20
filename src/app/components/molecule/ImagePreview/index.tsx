@@ -67,8 +67,8 @@ const ImagePreview = ({
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={src} alt={alt} height={height} width={width} />
       <CloseBox
-        alignItems="center"
-        justifyContent="center"
+        $alignItems="center"
+        $justifyContent="center"
         onClick={handleCloseClick}
       >
         <CloseIcon size={24} color="white" />

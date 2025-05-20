@@ -1,6 +1,5 @@
 import { ApiContext } from "../types/data";
 
-type Key = "serve" | "client";
 interface GetApiContextProps {
   key: "serve" | "client";
 }

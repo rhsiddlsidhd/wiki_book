@@ -73,12 +73,12 @@ const productPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   return (
     <Layout>
       <Flex
-        paddingTop={2}
-        paddingBottom={2}
-        paddingLeft={{ base: 2, md: 0 }}
-        paddingRight={{ base: 2, md: 0 }}
-        justifyContent="center"
-        flexDirection={{ base: "column", md: "row" }}
+        $paddingTop={2}
+        $paddingBottom={2}
+        $paddingLeft={{ base: 2, md: 0 }}
+        $paddingRight={{ base: 2, md: 0 }}
+        $justifyContent="center"
+        $flexDirection={{ base: "column", md: "row" }}
       >
         <Box>
           <Breadcrumb>
@@ -95,7 +95,7 @@ const productPage = async ({ params }: { params: Promise<{ id: string }> }) => {
             </BreadcrumbItem>
             <BreadcrumbItem>{product.title}</BreadcrumbItem>
           </Breadcrumb>
-          <Flex paddingTop={2} paddingBottom={1} justifyContent="center">
+          <Flex $paddingTop={2} $paddingBottom={1} $justifyContent="center">
             <ProductCard
               variant="detail"
               title={product.title}
@@ -104,7 +104,7 @@ const productPage = async ({ params }: { params: Promise<{ id: string }> }) => {
             />
           </Flex>
           <Separator />
-          <Box paddingTop={1}>
+          <Box $paddingTop={1}>
             <Text as="h2" variant="large" marginTop={0}>
               게시자
             </Text>
@@ -119,11 +119,12 @@ const productPage = async ({ params }: { params: Promise<{ id: string }> }) => {
             </Link>
           </Box>
         </Box>
-        <Box padding={2} width={{ base: "100%", md: "700px" }}>
+        <Box $padding={2} $width={{ base: "100%", md: "700px" }}>
           <Flex
-            justifyContent="space-between"
-            flexDirection="column"
-            height={{ base: "", md: "100%" }}
+            $justifyContent="space-between"
+            $flexDirection="column"
+            $alignItems="center"
+            $height={{ base: "", md: "100%" }}
           >
             {/* 상품 개요를 표시, 줄바꿈별로 텍스트 컴포넌트로 감싼다 */}
             <Box>

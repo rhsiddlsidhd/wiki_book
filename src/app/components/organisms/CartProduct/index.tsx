@@ -54,9 +54,9 @@ const CartProduct = ({
   onRemoveButtonClick,
 }: CartProductProps) => {
   return (
-    <Flex justifyContent="space-between">
+    <Flex $justifyContent="space-between">
       <Flex>
-        <Box width="120px" height="120px">
+        <Box $width="120px" $height="120px">
           <Link href={`/products/${id}`} passHref>
             <Image
               quality="85"
@@ -68,11 +68,11 @@ const CartProduct = ({
             />
           </Link>
         </Box>
-        <Box padding={1}>
+        <Box $padding={1}>
           <Flex
-            height="100%"
-            flexDirection="column"
-            justifyContent="space-between"
+            $height="100%"
+            $flexDirection="column"
+            $justifyContent="space-between"
           >
             <Box>
               <Text
@@ -88,20 +88,20 @@ const CartProduct = ({
                 {price}원
               </Text>
             </Box>
-            <Flex marginTop={{ base: 2, md: 0 }}>
+            <Flex $marginTop={{ base: 2, md: 0 }}>
               {/* 구입 버튼 */}
               <Button
-                width={{ base: "100px", md: "200px" }}
+                $width={{ base: "100px", md: "200px" }}
                 onClick={() => onBuyButtonClick && onBuyButtonClick(id)}
               >
                 구입
               </Button>
               {/* 삭제 버튼(모바일) */}
               <Button
-                marginLeft={1}
-                width={{ base: "100px", md: "200px" }}
-                display={{ base: "block", md: "none" }}
-                variant="danger"
+                $marginLeft={1}
+                $width={{ base: "100px", md: "200px" }}
+                $display={{ base: "block", md: "none" }}
+                $variant="danger"
                 onClick={() => onRemoveButtonClick && onRemoveButtonClick(id)}
               >
                 삭제
@@ -110,7 +110,7 @@ const CartProduct = ({
           </Flex>
         </Box>
       </Flex>
-      <Box display={{ base: "none", md: "block" }}>
+      <Box $display={{ base: "none", md: "block" }}>
         {/* 삭제 버튼(데스크톱) */}
         <RemoveText
           color="danger"

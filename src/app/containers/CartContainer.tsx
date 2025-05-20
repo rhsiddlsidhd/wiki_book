@@ -3,13 +3,14 @@ import CartProduct from "../components/organisms/CartProduct";
 import { useGlobalSpinnerActionsContext } from "../context/GlobalSpinnerContext";
 import { useShoppingCartContext } from "../context/ShoppingCartContext";
 import purchase from "../services/purchase/purchase";
-import { ApiContext } from "../types/data";
 import getApiContext from "../utils/env";
+import { useAuthGuard } from "../utils/hook";
 
 /**
  * 카트 컨테이너
  */
 const CartContainer = () => {
+  useAuthGuard();
   const context = getApiContext({ key: "client" });
   const setGlobalSpinner = useGlobalSpinnerActionsContext();
   const { cart, removeProductFromCart } = useShoppingCartContext();

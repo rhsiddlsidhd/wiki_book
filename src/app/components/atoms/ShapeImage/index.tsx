@@ -7,6 +7,7 @@ type ShapeImageProps = ImageProps & { shape?: ImageShape };
 
 const ImageWithShape = styled(Image)<{ shape?: ImageShape }>`
   border-radius: ${({ shape }) => (shape === "circle" ? "50%" : "0")};
+  object-fit: cover;
 `;
 
 const ShapeImage = (props: ShapeImageProps) => {

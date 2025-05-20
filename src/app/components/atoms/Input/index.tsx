@@ -5,7 +5,7 @@ import styled, { css } from "styled-components";
  */
 const Input = styled.input<{ hasError?: boolean; hasBorder?: boolean }>`
   color: ${({ theme }) => theme.colors.text};
-  ${({ theme, hasBorder, hasError }) => {
+  ${({ theme, hasBorder = true, hasError }) => {
     if (hasBorder) {
       return css`
         border: 2px solid
@@ -40,9 +40,5 @@ const Input = styled.input<{ hasError?: boolean; hasBorder?: boolean }>`
     -moz-appearance: textfield;
   }
 `;
-
-Input.defaultProps = {
-  hasBorder: true,
-};
 
 export default Input;

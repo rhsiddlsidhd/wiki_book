@@ -54,9 +54,9 @@ const UserProfile = ({
       </Box>
       <Box padding={1}>
         <Flex
-          height="100%"
-          flexDirection="column"
-          justifyContent="space-between"
+          $height="100%"
+          $flexDirection="column"
+          $justifyContent="space-between"
         >
           <Box>
             {/* 사용자명 */}

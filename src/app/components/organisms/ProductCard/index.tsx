@@ -128,7 +128,7 @@ const ProductCard = ({
         )}
       </ProductCardImageContainer>
       {variant === "small" && (
-        <Box marginTop={1}>
+        <Box $marginTop={1}>
           <Text as="h2" variant="medium" margin={0} padding={0}>
             {title}
           </Text>

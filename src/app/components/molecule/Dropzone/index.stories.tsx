@@ -4,6 +4,7 @@ import Dropzone from "./index";
 
 import Button from "../../atoms/Button";
 import Box from "../../layout/Box";
+import Image from "next/image";
 
 const meta = {
   title: "Molecules/Dropzone",
@@ -69,25 +70,25 @@ const DropzoneDemo = (args: React.ComponentProps<typeof Dropzone>) => {
 
   return (
     <>
-      <Box marginBottom={1}>
+      <Box $marginBottom={1}>
         <Dropzone {...args} value={files} onDrop={handleDrop} />
       </Box>
-      <Box marginBottom={1}>
-        <Button variant="primary" onClick={fetchData}>
+      <Box $marginBottom={1}>
+        <Button $variant="primary" onClick={fetchData}>
           이미지를 추가
         </Button>
       </Box>
-      <Box marginBottom={2}>
-        <Button variant="secondary" onClick={clearImages}>
+      <Box $marginBottom={2}>
+        <Button $variant="secondary" onClick={clearImages}>
           모든 이미지를 클리어
         </Button>
       </Box>
       <Box>
         {files.map((f, i) => (
-          <img
+          <Image
             key={i}
             src={URL.createObjectURL(f)}
-            width="100px"
+            width={100}
             alt={`sample-${i}`}
           />
         ))}

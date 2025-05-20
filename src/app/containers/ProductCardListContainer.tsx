@@ -3,9 +3,10 @@ import Link from "next/link";
 import { ApiContext, Category, Condition } from "../types/data";
 import useSearch from "../services/products/use-search";
 import ProductCardList from "../components/organisms/ProductCardList";
-import { Box } from "@mui/material";
+
 import RectLoader from "../components/atoms/RectLoader";
 import ProductCard from "../components/organisms/ProductCard";
+import Box from "../components/layout/Box";
 
 const context: ApiContext = {
   apiRootUrl: process.env.API_BASE_URL || "/api/proxy",
@@ -40,10 +41,10 @@ const ProductCardListContainer = ({
       {isLoading &&
         Array.from(Array(16), (_, k) => (
           <Box key={k}>
-            <Box display={{ base: "none", md: "block" }}>
+            <Box $display={{ base: "none", md: "block" }}>
               <RectLoader width={240} height={240} />
             </Box>
-            <Box display={{ base: "block", md: "none" }}>
+            <Box $display={{ base: "block", md: "none" }}>
               <RectLoader width={160} height={160} />
             </Box>
           </Box>

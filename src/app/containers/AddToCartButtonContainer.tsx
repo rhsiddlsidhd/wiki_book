@@ -1,6 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useShoppingCartContext } from "../context/ShoppingCartContext";
 import { Product } from "../types/data";
 import Button from "./../components/atoms/Button/index";
@@ -31,8 +30,8 @@ const AddToCartButtonContainer = ({
 
   return (
     <Button
-      width={{ base: "100%", md: "400px" }}
-      height="66px"
+      $width={{ base: "100%", md: "400px" }}
+      $height="66px"
       onClick={handleAddToCartButtonClick}
     >
       카트에 추가

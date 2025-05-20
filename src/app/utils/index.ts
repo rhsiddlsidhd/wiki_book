@@ -1,7 +1,7 @@
-export const fetcher = async (
+export const fetcher = async <T>(
   resource: RequestInfo,
   init?: RequestInit
-): Promise<any> => {
+): Promise<T> => {
   const res = await fetch(resource, init);
 
   if (!res.ok) {

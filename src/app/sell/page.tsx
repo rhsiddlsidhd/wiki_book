@@ -10,28 +10,28 @@ const SellPage: NextPage = () => {
   return (
     <Layout>
       <Flex
-        paddingTop={{
+        $paddingTop={{
           base: 2,
           md: 4,
         }}
-        paddingBottom={{
+        $paddingBottom={{
           base: 2,
           md: 4,
         }}
-        paddingLeft={{ base: 2, md: 0 }}
-        paddingRight={{ base: 2, md: 0 }}
-        justifyContent="center"
+        $paddingLeft={{ base: 2, md: 0 }}
+        $paddingRight={{ base: 2, md: 0 }}
+        $justifyContent="center"
       >
         <Flex
-          width="800px"
-          flexDirection="column"
-          justifyContent="center"
-          alignItems="center"
+          $width="800px"
+          $flexDirection="column"
+          $justifyContent="center"
+          $alignItems="center"
         >
-          <Box display={{ base: "none", md: "block" }} marginBottom={2}>
+          <Box $display={{ base: "none", md: "block" }} $marginBottom={2}>
             <AppLogo />
           </Box>
-          <Box width="100%">
+          <Box $width="100%">
             {/*
               상품 게시폼 컨테이너
               상품 정보를 입력하고 제품 API를 통해 상품을 저장

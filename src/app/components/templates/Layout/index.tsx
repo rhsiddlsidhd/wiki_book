@@ -1,7 +1,6 @@
 "use client";
 
 import Separator from "../../atoms/Separator";
-
 import Footer from "../../organisms/Footer";
 import Box from "../../layout/Box";
 import Header from "../../organisms/Header";
@@ -16,7 +15,7 @@ const Layout = ({ children }: LayoutProps) => {
       <Header />
       <main>{children}</main>
       <Separator />
-      <Box padding={3}>
+      <Box $padding={3}>
         <Footer />
       </Box>
     </>

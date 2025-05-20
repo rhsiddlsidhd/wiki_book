@@ -102,10 +102,4 @@ const TextArea = (props: TextAreaProps) => {
   );
 };
 
-TextArea.defaultProps = {
-  rows: 5,
-  minRows: 5,
-  maxRows: 10,
-};
-
 export default TextArea;

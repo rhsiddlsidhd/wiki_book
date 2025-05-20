@@ -61,14 +61,17 @@ export function toPropValue<T>(
       ) {
         // 미디어 쿼리의 스타일
         const breakpoint = BREAKPOINTS[responsiveKey];
+
         const style = `${propKey}: ${toThemeValueIfNeeded(
           propKey,
           prop[responsiveKey],
           theme
-        )};`;
-        result.push(`@media screen and (min-width: ${breakpoint}) {${style}}`);
+        )}`;
+
+        result.push(`@media screen and (min-width: ${breakpoint}) {${style};}`);
       }
     }
+
     return result.join("\n");
   }
 

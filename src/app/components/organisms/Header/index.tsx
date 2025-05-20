@@ -29,6 +29,7 @@ const Nav = styled(Flex)`
   & > span:not(:first-child) {
     margin-left: ${({ theme }) => theme.space[2]};
   }
+  flex: 0 0 auto;
 `;
 
 // 내비게이션 링크
@@ -53,8 +54,8 @@ const Header = () => {
 
   return (
     <HeaderRoot>
-      <Flex paddingLeft={3} paddingRight={3} justifyContent="space-between">
-        <Nav as="nav" height="56px" alignItems="center">
+      <Flex $paddingLeft={3} $paddingRight={3} $justifyContent="space-between">
+        <Nav as="nav" $height="56px" $alignItems="center">
           <NavLink>
             <Link href="/" passHref>
               <Anchor>
@@ -64,9 +65,9 @@ const Header = () => {
           </NavLink>
           <TabList />
         </Nav>
-        <Nav as="nav" height="56px" alignItems="center">
+        <Nav as="nav" $height="56px" $alignItems="center">
           <NavLink>
-            <Box display={{ base: "block", md: "none" }}>
+            <Box $display={{ base: "block", md: "none" }}>
               <Link href="/search" passHref>
                 <Anchor>
                   <SearchIcon />
@@ -87,37 +88,39 @@ const Header = () => {
             </Link>
           </NavLink>
           <NavLink>
-            {(() => {
-              // 인증된 상태라면 아이콘을 표시
-              if (authUser) {
-                return (
-                  <Link href={`/users/${authUser.id}`} passHref>
-                    <Anchor>
-                      <ShapeImage
-                        shape="circle"
-                        src={authUser.profileImageUrl}
-                        width={24}
-                        height={24}
-                        alt="ShapeImage"
-                        data-testid="profile-shape-image"
-                      />
-                    </Anchor>
-                  </Link>
-                );
-              } else if (isLoading) {
-                // 로드 중에는 스피너를 표시
-                return <Spinner size={20} strokeWidth={2} />;
-              } else {
-                // 로그인 하지 않은 경우에는 아이콘을 표시
-                return (
-                  <Link href="/signin" passHref>
-                    <Anchor>
-                      <PersonIcon size={24} />
-                    </Anchor>
-                  </Link>
-                );
-              }
-            })()}
+            <Box $width="24px" $height="24px">
+              {(() => {
+                // 인증된 상태라면 아이콘을 표시
+                if (authUser) {
+                  return (
+                    <Link href={`/users/${authUser.id}`} passHref>
+                      <Anchor>
+                        <ShapeImage
+                          shape="circle"
+                          src={authUser.profileImageUrl}
+                          width={24}
+                          height={24}
+                          alt="ShapeImage"
+                          data-testid="profile-shape-image"
+                        />
+                      </Anchor>
+                    </Link>
+                  );
+                } else if (isLoading) {
+                  // 로드 중에는 스피너를 표시
+                  return <Spinner size={20} strokeWidth={2} />;
+                } else {
+                  // 로그인 하지 않은 경우에는 아이콘을 표시
+                  return (
+                    <Link href="/signin" passHref>
+                      <Anchor>
+                        <PersonIcon size={24} />
+                      </Anchor>
+                    </Link>
+                  );
+                }
+              })()}
+            </Box>
           </NavLink>
           <NavLink>
             <Link href="/sell" passHref>

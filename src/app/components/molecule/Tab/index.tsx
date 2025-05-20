@@ -11,7 +11,7 @@ const NavLink = styled.span`
 const Tab = ({ name, src }: { name: string; src: string }) => {
   return (
     <NavLink key={name}>
-      <Box display={{ base: "none", md: "block" }}>
+      <Box $display={{ base: "none", md: "block" }}>
         <Link href={src} passHref>
           <Anchor>{name}</Anchor>
         </Link>

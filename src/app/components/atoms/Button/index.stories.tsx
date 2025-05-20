@@ -57,14 +57,14 @@ type Story = StoryObj<typeof Button>;
 
 export const Primary: Story = {
   args: {
-    variant: "primary",
+    $variant: "primary",
     children: "Primary Button",
   },
 };
 
 export const Secondary: Story = {
   args: {
-    variant: "secondary",
+    $variant: "secondary",
     children: "Secondary Button",
   },
 };

@@ -197,7 +197,7 @@ const ProductForm = ({ onProductSave }: ProductFormProps) => {
           )}
         </Box>
       </Box>
-      <Button width="100%" type="submit">
+      <Button $width="100%" type="submit">
         등록
       </Button>
     </form>

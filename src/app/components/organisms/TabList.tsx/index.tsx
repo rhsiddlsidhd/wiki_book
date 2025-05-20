@@ -10,7 +10,7 @@ const TabList = () => {
   ];
   return (
     <Fragment>
-      {tabs.map((t, i) => {
+      {tabs.map((t) => {
         return <Tab key={t.name} name={t.name} src={t.src} />;
       })}
     </Fragment>
