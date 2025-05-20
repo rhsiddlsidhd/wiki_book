@@ -1,16 +1,13 @@
 "use client";
 import Link from "next/link";
-import { ApiContext, Category, Condition } from "../types/data";
+import { Category, Condition } from "../types/data";
 import useSearch from "../services/products/use-search";
 import ProductCardList from "../components/organisms/ProductCardList";
 
 import RectLoader from "../components/atoms/RectLoader";
 import ProductCard from "../components/organisms/ProductCard";
 import Box from "../components/layout/Box";
-
-const context: ApiContext = {
-  apiRootUrl: process.env.API_BASE_URL || "/api/proxy",
-};
+import getApiContext from "../utils/env";
 
 interface ProductCardListContainerProps {
   /**
@@ -30,6 +27,8 @@ const ProductCardListContainer = ({
   category,
   conditions,
 }: ProductCardListContainerProps) => {
+  const context = getApiContext({ key: "client" });
+
   const { products, isLoading } = useSearch(context, {
     category,
     conditions,
