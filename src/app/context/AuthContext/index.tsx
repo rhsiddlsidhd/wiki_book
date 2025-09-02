@@ -39,7 +39,7 @@ export const AuthContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const context = getApiContext({ key: "client" });
+  const context = getApiContext({ key: "serve" });
 
   const { data, error, mutate } = useSWR<User>(
     `${context.apiRootUrl.replace(/\/$/g, "")}/users/me`,

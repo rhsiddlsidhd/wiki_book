@@ -13,7 +13,7 @@ import getApiContext from "../utils/env";
  * 상품 게시폼 컨테이너
  */
 const ProductFormContainer = () => {
-  const context = getApiContext({ key: "client" });
+  const context = getApiContext({ key: "serve" });
   useAuthGuard();
   const router = useRouter();
   const { authUser } = useAuthContext();
