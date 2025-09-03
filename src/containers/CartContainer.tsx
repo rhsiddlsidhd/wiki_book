@@ -11,7 +11,7 @@ import { useAuthGuard } from "../utils/hook";
  */
 const CartContainer = () => {
   useAuthGuard();
-  const context = getApiContext({ key: "serve" });
+  const context = getApiContext({ key: "client" });
   const setGlobalSpinner = useGlobalSpinnerActionsContext();
   const { cart, removeProductFromCart } = useShoppingCartContext();
   // 삭제 버튼 클릭 시, 상품을 삭제

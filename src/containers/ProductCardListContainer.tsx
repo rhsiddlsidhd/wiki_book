@@ -28,7 +28,7 @@ const ProductCardListContainer = ({
   category,
   conditions,
 }: ProductCardListContainerProps) => {
-  const context = getApiContext({ key: "serve" });
+  const context = getApiContext({ key: "client" });
 
   const { products, isLoading } = useSearch(context, {
     category,

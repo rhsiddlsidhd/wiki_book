@@ -13,7 +13,6 @@ import Box from "@/components/layout/Box";
 
 import Link from "next/link";
 
-import { use } from "react";
 import Text from "@/components/atoms/Text";
 
 import Flex from "../../../components/layout/Flex/index";
@@ -46,13 +45,17 @@ const isCategory = (param: string): param is Category => {
   return Object.keys(categoryNameDict).includes(param);
 };
 
-const SearchPage = (props: { params: Params; searchParams: SearchParams }) => {
-  const { slug } = use(props.params);
-  const { condition } = use(props.searchParams);
+const SearchPage = async (props: {
+  params: Params;
+  searchParams: SearchParams;
+}) => {
+  const { slug } = await props.params;
+
+  const { condition } = await props.searchParams;
 
   const __slug = Array.isArray(slug) && slug.every(isCategory) ? slug : [];
 
-  const conditions = Array.isArray(condition)
+  const conditions: Condition[] = Array.isArray(condition)
     ? condition
     : condition
       ? [condition]
@@ -85,7 +88,7 @@ const SearchPage = (props: { params: Params; searchParams: SearchParams }) => {
               __slug.slice(0, __slug.length - 1).map((category, i) => (
                 <BreadcrumbItem key={i}>
                   <Link href={`/search/${__slug.slice(0, i + 1).join("/")}`}>
-                    {categoryNameDict[category] ?? "Unknown"}
+                    {categoryNameDict[category as Category] ?? "Unknown"}
                   </Link>
                 </BreadcrumbItem>
               ))}
@@ -107,6 +110,7 @@ const SearchPage = (props: { params: Params; searchParams: SearchParams }) => {
               {/* 상품 상태 필터 */}
 
               {<FilterGroupWithRouter slug={__slug} conditions={conditions} />}
+
               <Box $paddingTop={1}>
                 <Text as="h2" fontWeight="bold" variant="mediumLarge">
                   카테고리

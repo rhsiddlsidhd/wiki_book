@@ -46,6 +46,7 @@ const getAllProducts = async (
   }: GetAllProductsParams = {}
 ): Promise<Product[]> => {
   const path = `${context.apiRootUrl.replace(/\/$/g, "")}/products`;
+
   const params = new URLSearchParams();
   if (category) params.append("category", category);
   if (conditions)
