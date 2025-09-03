@@ -1,8 +1,8 @@
 "use client";
 
 import { useRouter, usePathname } from "next/navigation";
-import FilterGroup from "@/app/components/molecule/FilterGroup";
-import { Category, Condition } from "@/app/types/data";
+import FilterGroup from "@/components/molecule/FilterGroup";
+import { Category, Condition } from "@/types/data";
 
 type Props = {
   slug: Category[];

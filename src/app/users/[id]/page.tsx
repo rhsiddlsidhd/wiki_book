@@ -1,17 +1,18 @@
-import BreadcrumbItem from "@/app/components/atoms/BreadcrumbItem";
-import Separator from "@/app/components/atoms/Separator";
-import Flex from "@/app/components/layout/Flex";
-import Breadcrumb from "@/app/components/molecule/Breadcrumb";
-import Layout from "@/app/components/templates/Layout";
-import UserProductCardListContainer from "@/app/containers/UserProductCardListContainer";
-import UserProfileContainer from "@/app/containers/UserProfileContainer";
-import getAllProducts from "@/app/services/products/get-all-products";
-import getAllUsers from "@/app/services/users/get-All-user";
-import getUser from "@/app/services/users/get-user";
+import BreadcrumbItem from "@/components/atoms/BreadcrumbItem";
+import Separator from "@/components/atoms/Separator";
+import Flex from "@/components/layout/Flex";
 
-import Box from "@/app/components/layout/Box";
+import UserProductCardListContainer from "@/containers/UserProductCardListContainer";
+import UserProfileContainer from "@/containers/UserProfileContainer";
+import getAllProducts from "@/services/products/get-all-products";
+import getAllUsers from "@/services/users/get-All-user";
+import getUser from "@/services/users/get-user";
+
+import Box from "@/components/layout/Box";
 import Link from "next/link";
-import getApiContext from "@/app/utils/env";
+import getApiContext from "@/utils/env";
+import Layout from "@/components/templates/Layout";
+import Breadcrumb from "@/components/molecule/Breadcrumb";
 
 /**
  * navigate는 useRouter를 이용

@@ -1,10 +1,10 @@
 import StyledJsxRegistry from "./registry";
 import GlobalStyleProvider from "./global-style";
-import { AuthContextProvider } from "./context/AuthContext";
+import { AuthContextProvider } from "../context/AuthContext";
 
-import { ShoppingCartContextProvider } from "./context/ShoppingCartContext";
+import { ShoppingCartContextProvider } from "../context/ShoppingCartContext";
 import Head from "next/head";
-import GlobalSpinnerContextProvider from "./context/GlobalSpinnerContext";
+import GlobalSpinnerContextProvider from "../context/GlobalSpinnerContext";
 
 /**
  * server and client 분리 패턴

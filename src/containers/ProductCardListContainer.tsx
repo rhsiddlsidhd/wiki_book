@@ -1,0 +1,71 @@
+"use client";
+import Link from "next/link";
+
+import useSearch from "../services/products/use-search";
+
+import RectLoader from "../components/atoms/RectLoader";
+import ProductCard from "../components/organisms/ProductCard";
+import Box from "../components/layout/Box";
+import getApiContext from "../utils/env";
+import ProductCardList from "@/components/organisms/ProductCardList";
+import { Category, Condition } from "@/types/data";
+
+interface ProductCardListContainerProps {
+  /**
+   * 검색 쿼리 - 카테고리
+   */
+  category?: Category;
+  /**
+   * 검색 쿼리 - 상품 상태
+   */
+  conditions?: Condition[];
+}
+
+/**
+ * 상품 카드 리스트 컨테이너
+ */
+const ProductCardListContainer = ({
+  category,
+  conditions,
+}: ProductCardListContainerProps) => {
+  const context = getApiContext({ key: "serve" });
+
+  const { products, isLoading } = useSearch(context, {
+    category,
+    conditions,
+  });
+
+  return (
+    <ProductCardList>
+      {/* 로드 중에는 RectLoader를 표시 */}
+      {isLoading &&
+        Array.from(Array(16), (_, k) => (
+          <Box key={k}>
+            <Box $display={{ base: "none", md: "block" }}>
+              <RectLoader width={240} height={240} />
+            </Box>
+            <Box $display={{ base: "block", md: "none" }}>
+              <RectLoader width={160} height={160} />
+            </Box>
+          </Box>
+        ))}
+      {!isLoading &&
+        products.map((p) => (
+          <Box key={p.id}>
+            <Link href={`/products/${p.id}`} passHref>
+              {/* 상품 카드 */}
+              <ProductCard
+                variant="listing"
+                title={p.title}
+                price={p.price}
+                imageUrl={p.imageUrl}
+                blurDataUrl={p.blurDataUrl}
+              />
+            </Link>
+          </Box>
+        ))}
+    </ProductCardList>
+  );
+};
+
+export default ProductCardListContainer;

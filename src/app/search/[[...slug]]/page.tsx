@@ -8,21 +8,20 @@
  *
  */
 
-import BreadcrumbItem from "@/app/components/atoms/BreadcrumbItem";
-import Box from "@/app/components/layout/Box";
-import Breadcrumb from "@/app/components/molecule/Breadcrumb";
+import BreadcrumbItem from "@/components/atoms/BreadcrumbItem";
+import Box from "@/components/layout/Box";
 
-import Layout from "@/app/components/templates/Layout";
 import Link from "next/link";
 
-import { Category, Condition } from "@/app/types/data";
-
 import { use } from "react";
-import Text from "@/app/components/atoms/Text";
+import Text from "@/components/atoms/Text";
 
-import Flex from "./../../components/layout/Flex/index";
+import Flex from "../../../components/layout/Flex/index";
 import FilterGroupWithRouter from "./FilterGroupWithRouter";
-import ProductCardListContainer from "@/app/containers/ProductCardListContainer";
+import ProductCardListContainer from "@/containers/ProductCardListContainer";
+import { Category, Condition } from "@/types/data";
+import Layout from "@/components/templates/Layout";
+import Breadcrumb from "@/components/molecule/Breadcrumb";
 
 // const Anchor = styled(Text)`
 //   cursor: pointer;

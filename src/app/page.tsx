@@ -1,13 +1,15 @@
 import Link from "next/link";
-import ProductCardCarousel from "./components/organisms/ProductCardCaraousel";
-import { Product } from "./types/data";
-import Box from "./components/layout/Box";
-import ProductCard from "./components/organisms/ProductCard";
-import Layout from "./components/templates/Layout";
-import Flex from "./components/layout/Flex";
-import Text from "./components/atoms/Text";
-import getAllProducts from "./services/products/get-all-products";
-import getApiContext from "./utils/env";
+
+import Box from "../components/layout/Box";
+import ProductCard from "../components/organisms/ProductCard";
+
+import Flex from "../components/layout/Flex";
+import Text from "../components/atoms/Text";
+import getAllProducts from "../services/products/get-all-products";
+import getApiContext from "../utils/env";
+import ProductCardCarousel from "@/components/organisms/ProductCardCaraousel";
+import { Product } from "@/types/data";
+import Layout from "@/components/templates/Layout";
 
 export const revalidate = 60;
 export const dynamicParams = true;

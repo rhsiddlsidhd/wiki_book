@@ -1,9 +1,10 @@
 import type { NextPage } from "next";
-import Layout from "../components/templates/Layout";
-import Flex from "../components/layout/Flex";
-import AppLogo from "../components/atoms/AppLogo";
-import Box from "../components/layout/Box";
-import SigninFormSuspenseWrapper from "../containers/SigninFormSuspenseWrapper";
+
+import Flex from "../../components/layout/Flex";
+import AppLogo from "../../components/atoms/AppLogo";
+import Box from "../../components/layout/Box";
+import SigninFormSuspenseWrapper from "../../containers/SigninFormSuspenseWrapper";
+import Layout from "@/components/templates/Layout";
 
 const SigninPage: NextPage = () => {
   return (

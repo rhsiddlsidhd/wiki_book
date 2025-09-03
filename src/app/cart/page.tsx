@@ -1,12 +1,14 @@
 import type { NextPage } from "next";
 import Link from "next/link";
-import Layout from "../components/templates/Layout";
-import Flex from "../components/layout/Flex";
-import Breadcrumb from "../components/molecule/Breadcrumb";
-import BreadcrumbItem from "./../components/atoms/BreadcrumbItem/index";
-import Text from "../components/atoms/Text";
-import CartContainer from "../containers/CartContainer";
-import Box from "../components/layout/Box";
+
+import Flex from "../../components/layout/Flex";
+
+import BreadcrumbItem from "../../components/atoms/BreadcrumbItem/index";
+import Text from "../../components/atoms/Text";
+import CartContainer from "../../containers/CartContainer";
+import Box from "../../components/layout/Box";
+import Layout from "@/components/templates/Layout";
+import Breadcrumb from "@/components/molecule/Breadcrumb";
 
 const CartPage: NextPage = () => {
   // 인증 가드

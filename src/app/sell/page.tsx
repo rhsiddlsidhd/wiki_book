@@ -1,10 +1,10 @@
 import type { NextPage } from "next";
 
-import Layout from "../components/templates/Layout";
-import Flex from "../components/layout/Flex";
-import Box from "../components/layout/Box";
-import AppLogo from "../components/atoms/AppLogo";
-import ProductFormContainer from "../containers/ProductFormContainer";
+import Flex from "../../components/layout/Flex";
+import Box from "../../components/layout/Box";
+import AppLogo from "../../components/atoms/AppLogo";
+import ProductFormContainer from "../../containers/ProductFormContainer";
+import Layout from "@/components/templates/Layout";
 
 const SellPage: NextPage = () => {
   return (

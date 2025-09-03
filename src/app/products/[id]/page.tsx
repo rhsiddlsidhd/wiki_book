@@ -25,20 +25,23 @@
  *
  */
 
-import BreadcrumbItem from "@/app/components/atoms/BreadcrumbItem";
-import Separator from "@/app/components/atoms/Separator";
-import Text from "@/app/components/atoms/Text";
-import Box from "@/app/components/layout/Box";
-import Flex from "@/app/components/layout/Flex";
-import Breadcrumb from "@/app/components/molecule/Breadcrumb";
-import ProductCard from "@/app/components/organisms/ProductCard";
-import UserProfile from "@/app/components/organisms/UserProfile";
-import Layout from "@/app/components/templates/Layout";
-import AddToCartButtonContainer from "@/app/containers/AddToCartButtonContainer";
-import getAllProducts from "@/app/services/products/get-all-products";
-import getProduct from "@/app/services/products/get-product";
-import { ApiContext, Category } from "@/app/types/data";
-import getApiContext from "@/app/utils/env";
+import BreadcrumbItem from "@/components/atoms/BreadcrumbItem";
+import Separator from "@/components/atoms/Separator";
+import Text from "@/components/atoms/Text";
+import Box from "@/components/layout/Box";
+import Flex from "@/components/layout/Flex";
+import Breadcrumb from "@/components/molecule/Breadcrumb";
+
+import ProductCard from "@/components/organisms/ProductCard";
+import UserProfile from "@/components/organisms/UserProfile";
+import Layout from "@/components/templates/Layout";
+
+import AddToCartButtonContainer from "@/containers/AddToCartButtonContainer";
+import getAllProducts from "@/services/products/get-all-products";
+import getProduct from "@/services/products/get-product";
+import { ApiContext, Category } from "@/types/data";
+
+import getApiContext from "@/utils/env";
 
 import Link from "next/link";
 
